@@ -14,16 +14,6 @@ begin
     gem.files       =  Dir['lib/*.rb'] + Dir['lib/resources/*.rb']
     gem.license     = 'BSD 3-Clause'
     gem.homepage    = 'https://github.com/SaltwaterC/serverspec-aws'
-
-    gem.add_runtime_dependency 'aws-sdk', '~>2'
-    gem.add_runtime_dependency 'serverspec', '~>2'
-    gem.add_runtime_dependency 'require_all', '~>1'
-
-    gem.add_development_dependency 'rubocop', '~>0.31'
-    gem.add_development_dependency 'rspec', '~>3'
-    gem.add_development_dependency 'yard', '~>0.8'
-    gem.add_development_dependency 'guard-rspec', '~>4'
-    gem.add_development_dependency 'guard-rubocop', '~>1'
   end
 rescue LoadError
   STDERR.puts 'Jeweler, or one of its dependencies, is not available.'
@@ -73,6 +63,8 @@ task :cleanup do
   rm_rf '.yardoc'
   rm_rf 'doc'
   rm_rf 'pkg'
+  rm_f 'serverspec-aws.gemspec'
+  rm_f 'Gemfile.lock'
 end
 
 desc 'Runs the rubocop and the spec tasks'
