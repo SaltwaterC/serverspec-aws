@@ -6,7 +6,7 @@ gem 'aws-sdk', '~>2'
 gem 'serverspec', '~>2'
 gem 'require_all', '~>1'
 
-group :development, :optional => true do
+group :development, optional: true do
   gem 'rubocop', '~>0.31'
   gem 'rspec', '~>3'
   gem 'yard', '~>0.8'

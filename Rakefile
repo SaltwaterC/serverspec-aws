@@ -11,8 +11,8 @@ begin
     gem.description = %(Serverspec resources for testing the AWS infrastructure)
     gem.authors     = %w(Ștefan Rusu)
     gem.email       = 'saltwaterc@gmail.com'
-    gem.files       =  Dir['lib/*.rb'] + Dir['lib/resources/*.rb']
-    gem.license     = 'BSD 3-Clause'
+    gem.files       = Dir['lib/*.rb'] + Dir['lib/resources/*.rb']
+    gem.license     = 'BSD-3-Clause'
     gem.homepage    = 'https://github.com/SaltwaterC/serverspec-aws'
   end
 rescue LoadError

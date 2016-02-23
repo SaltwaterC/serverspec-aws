@@ -2,31 +2,34 @@
 
 ec2 = Aws::EC2::Client.new
 # stub RouteTable
-ec2.stub_responses(:describe_route_tables, route_tables: [
-  {
-    vpc_id: 'vpc-aabbccdd',
-    routes: [
-      {
-        destination_cidr_block: '10.0.0.0/16',
-        state: 'active',
-        origin: 'CreateRouteTable'
-      }
-    ],
-    associations: [
-      {
-        route_table_association_id: 'rtbassoc-aabbccdd',
-        route_table_id: 'rtb-aabbccdd',
-        main: true
-      }
-    ],
-    tags: [
-      {
-        key: 'Name',
-        value: 'test-route-table'
-      }
-    ]
-  }
-])
+ec2.stub_responses(
+  :describe_route_tables,
+  route_tables: [
+    {
+      vpc_id: 'vpc-aabbccdd',
+      routes: [
+        {
+          destination_cidr_block: '10.0.0.0/16',
+          state: 'active',
+          origin: 'CreateRouteTable'
+        }
+      ],
+      associations: [
+        {
+          route_table_association_id: 'rtbassoc-aabbccdd',
+          route_table_id: 'rtb-aabbccdd',
+          main: true
+        }
+      ],
+      tags: [
+        {
+          key: 'Name',
+          value: 'test-route-table'
+        }
+      ]
+    }
+  ]
+)
 
 RSpec.describe rtb = EC2::RouteTable.new('rtb-aabbccdd', ec2) do
   its(:to_s) { is_expected.to eq 'EC2 RouteTable: rtb-aabbccdd' }

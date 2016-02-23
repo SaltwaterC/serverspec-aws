@@ -1,30 +1,33 @@
 # encoding: utf-8
 
 cloudwatch = Aws::CloudWatch::Client.new
-cloudwatch.stub_responses(:describe_alarms, metric_alarms: [
-  {
-    alarm_description: 'This is the alarm description.',
-    state_value: 'OK',
-    actions_enabled: true,
-    alarm_actions: [
-      'arn:aws:sns:us-east-1:000000000000:sns-topic',
-      'arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:aaaaaaaa-bbbb-'\
-      'cccc-dddd-eeeeeeeeeeee:autoScalingGroupName/test-group:policyName/'\
-      'scale-on-high-cpu'
-    ],
-    metric_name: 'CPUUtilization',
-    namespace: 'AWS/EC2',
-    statistic: 'Average',
-    dimensions: [{
-      name: 'AutoScalingGroupName',
-      value: 'test-asg'
-    }],
-    period: 300,
-    evaluation_periods: 1,
-    threshold: 75.0,
-    comparison_operator: 'GreaterThanOrEqualToThreshold'
-  }
-])
+cloudwatch.stub_responses(
+  :describe_alarms,
+  metric_alarms: [
+    {
+      alarm_description: 'This is the alarm description.',
+      state_value: 'OK',
+      actions_enabled: true,
+      alarm_actions: [
+        'arn:aws:sns:us-east-1:000000000000:sns-topic',
+        'arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:aaaaaaaa-'\
+        'bbbb-cccc-dddd-eeeeeeeeeeee:autoScalingGroupName/test-group:'\
+        'policyName/scale-on-high-cpu'
+      ],
+      metric_name: 'CPUUtilization',
+      namespace: 'AWS/EC2',
+      statistic: 'Average',
+      dimensions: [{
+        name: 'AutoScalingGroupName',
+        value: 'test-asg'
+      }],
+      period: 300,
+      evaluation_periods: 1,
+      threshold: 75.0,
+      comparison_operator: 'GreaterThanOrEqualToThreshold'
+    }
+  ]
+)
 
 RSpec.describe alarm = CloudWatch::Alarm.new('test-alarm', cloudwatch) do
   its(:to_s) { is_expected.to eq 'CloudWatch Alarm: test-alarm' }

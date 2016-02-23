@@ -2,130 +2,136 @@
 
 ec21 = Aws::EC2::Client.new
 # stub Instance
-ec21.stub_responses(:describe_instances, reservations: [
-  {
-    reservation_id: 'r-aabbccdd',
-    instances: [
-      {
-        instance_id: 'i-aabbccdd',
-        image_id: 'ami-aabbccdd',
-        state: {
-          code: 16,
-          name: 'running'
-        },
-        private_dns_name: 'ip-10-0-0-1.us-east-1.compute.internal',
-        public_dns_name: 'ec2-1-2-3-4.compute-1.amazonaws.com',
-        key_name: 'test-key',
-        instance_type: 't2.micro',
-        placement: {
-          availability_zone: 'us-east-1a',
-          group_name: '',
-          tenancy: 'default'
-        },
-        kernel_id: 'aki-aabbccdd',
-        ramdisk_id: 'ari-aabbccdd',
-        # this is not consistent, but the testing must be done
-        platform: 'Windows',
-        monitoring: {
-          state: 'enabled'
-        },
-        subnet_id: 'subnet-aabbccdd',
-        vpc_id: 'vpc-aabbccdd',
-        private_ip_address: '10.0.0.1',
-        public_ip_address: '1.2.3.4',
-        architecture: 'x86_64',
-        root_device_type: 'ebs',
-        root_device_name: '/dev/xvda',
-        block_device_mappings: [{
-          device_name: '/dev/xvda',
-          ebs: {
-            volume_id: 'vol-aabbccdd',
-            status: 'attached',
-            attach_time: Time.new,
-            delete_on_termination: true
-          }
-        }],
-        virtualization_type: 'hvm',
-        instance_lifecycle: nil,
-        tags: [
-          {
-            key: 'test-key',
-            value: 'test-value'
-          }
-        ],
-        security_groups: [
-          {
-            group_name: 'test-group',
-            group_id: 'sg-aabbccdd'
-          }
-        ],
-        source_dest_check: true,
-        hypervisor: 'xen',
-        network_interfaces: [
-          {
-            network_interface_id: 'eni-aabbccdd',
-            subnet_id: 'subnet-aabbccdd',
-            vpc_id: 'vpc-aabbccdd',
-            description: 'eni description',
-            owner_id: '000000000000000000000',
-            status: 'in-use',
-            mac_address: 'aa:bb:cc:dd:ee:ff',
-            private_ip_address: '10.0.0.1',
-            private_dns_name: nil,
-            source_dest_check: true,
-            groups: [
-              {
-                group_name: 'test-group',
-                group_id: 'sg-aabbccdd'
-              }
-            ],
-            attachment: {
-              attachment_id: 'eni-attach-aabbccdd',
-              device_index: 0,
+ec21.stub_responses(
+  :describe_instances,
+  reservations: [
+    {
+      reservation_id: 'r-aabbccdd',
+      instances: [
+        {
+          instance_id: 'i-aabbccdd',
+          image_id: 'ami-aabbccdd',
+          state: {
+            code: 16,
+            name: 'running'
+          },
+          private_dns_name: 'ip-10-0-0-1.us-east-1.compute.internal',
+          public_dns_name: 'ec2-1-2-3-4.compute-1.amazonaws.com',
+          key_name: 'test-key',
+          instance_type: 't2.micro',
+          placement: {
+            availability_zone: 'us-east-1a',
+            group_name: '',
+            tenancy: 'default'
+          },
+          kernel_id: 'aki-aabbccdd',
+          ramdisk_id: 'ari-aabbccdd',
+          # this is not consistent, but the testing must be done
+          platform: 'Windows',
+          monitoring: {
+            state: 'enabled'
+          },
+          subnet_id: 'subnet-aabbccdd',
+          vpc_id: 'vpc-aabbccdd',
+          private_ip_address: '10.0.0.1',
+          public_ip_address: '1.2.3.4',
+          architecture: 'x86_64',
+          root_device_type: 'ebs',
+          root_device_name: '/dev/xvda',
+          block_device_mappings: [{
+            device_name: '/dev/xvda',
+            ebs: {
+              volume_id: 'vol-aabbccdd',
               status: 'attached',
               attach_time: Time.new,
               delete_on_termination: true
-            },
-            association: nil,
-            private_ip_addresses: [
-              {
-                private_ip_address: '10.0.0.1',
-                private_dns_name: nil,
-                primary: true,
-                association: nil
-              }
-            ]
-          }
-        ],
-        iam_instance_profile: {
-          arn: 'arn:aws:iam::000000000000000000000:instance-profile/'\
-            'test-instance-profile',
-          id: 'AAAAAAAAAAAAAAAAAAAAA'
-        },
-        ebs_optimized: true,
-        sriov_net_support: 'simple'
-      }
-    ]
-  }
-])
+            }
+          }],
+          virtualization_type: 'hvm',
+          instance_lifecycle: nil,
+          tags: [
+            {
+              key: 'test-key',
+              value: 'test-value'
+            }
+          ],
+          security_groups: [
+            {
+              group_name: 'test-group',
+              group_id: 'sg-aabbccdd'
+            }
+          ],
+          source_dest_check: true,
+          hypervisor: 'xen',
+          network_interfaces: [
+            {
+              network_interface_id: 'eni-aabbccdd',
+              subnet_id: 'subnet-aabbccdd',
+              vpc_id: 'vpc-aabbccdd',
+              description: 'eni description',
+              owner_id: '000000000000000000000',
+              status: 'in-use',
+              mac_address: 'aa:bb:cc:dd:ee:ff',
+              private_ip_address: '10.0.0.1',
+              private_dns_name: nil,
+              source_dest_check: true,
+              groups: [
+                {
+                  group_name: 'test-group',
+                  group_id: 'sg-aabbccdd'
+                }
+              ],
+              attachment: {
+                attachment_id: 'eni-attach-aabbccdd',
+                device_index: 0,
+                status: 'attached',
+                attach_time: Time.new,
+                delete_on_termination: true
+              },
+              association: nil,
+              private_ip_addresses: [
+                {
+                  private_ip_address: '10.0.0.1',
+                  private_dns_name: nil,
+                  primary: true,
+                  association: nil
+                }
+              ]
+            }
+          ],
+          iam_instance_profile: {
+            arn: 'arn:aws:iam::000000000000000000000:instance-profile/'\
+              'test-instance-profile',
+            id: 'AAAAAAAAAAAAAAAAAAAAA'
+          },
+          ebs_optimized: true,
+          sriov_net_support: 'simple'
+        }
+      ]
+    }
+  ]
+)
 
 ec22 = Aws::EC2::Client.new
-ec22.stub_responses(:describe_instances, reservations: [
-  {
-    reservation_id: 'r-aabbccdd',
-    instances: [
-      {
-        instance_id: 'i-aabbccdd',
-        tags: [
-          {
-            key: 'Name',
-            value: 'test-instance'
-          }
-        ]
-      }
-    ]
-  }
-])
+ec22.stub_responses(
+  :describe_instances,
+  reservations: [
+    {
+      reservation_id: 'r-aabbccdd',
+      instances: [
+        {
+          instance_id: 'i-aabbccdd',
+          tags: [
+            {
+              key: 'Name',
+              value: 'test-instance'
+            }
+          ]
+        }
+      ]
+    }
+  ]
+)
 
 RSpec.describe instance1 = EC2::Instance.new('i-aabbccdd', ec21) do
   its(:to_s) { is_expected.to eq 'EC2 Instance ID: i-aabbccdd' }

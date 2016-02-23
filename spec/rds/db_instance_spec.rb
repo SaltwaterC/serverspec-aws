@@ -1,98 +1,101 @@
 # encoding: utf-8
 
 rds = Aws::RDS::Client.new
-rds.stub_responses(:describe_db_instances, db_instances: [
-  {
-    db_instance_class: 'db.t2.micro',
-    engine: 'postgres',
-    db_instance_status: 'available',
-    master_username: 'test-username',
-    db_name: 'test-database',
-    endpoint: {
-      address: 'test-rds-db.aaaaaaaaaaaa.us-east-1.rds.amazonaws.com'
-    },
-    allocated_storage: 5,
-    preferred_backup_window: '23:00-00:00',
-    backup_retention_period: 1,
-    db_security_groups: [],
-    vpc_security_groups: [
-      {
-        vpc_security_group_id: 'sg-aabbccdd',
-        status: 'active'
+rds.stub_responses(
+  :describe_db_instances,
+  db_instances: [
+    {
+      db_instance_class: 'db.t2.micro',
+      engine: 'postgres',
+      db_instance_status: 'available',
+      master_username: 'test-username',
+      db_name: 'test-database',
+      endpoint: {
+        address: 'test-rds-db.aaaaaaaaaaaa.us-east-1.rds.amazonaws.com'
       },
-      {
-        vpc_security_group_id: 'sg-ddccbbaa',
-        status: 'active'
-      }
-    ],
-    db_parameter_groups: [
-      {
-        db_parameter_group_name: 'default.postgres9.3',
-        parameter_apply_status: 'in-sync'
-      }
-    ],
-    availability_zone: 'us-east-1a',
-    db_subnet_group: {
-      db_subnet_group_name: 'test-subnet-group',
-      db_subnet_group_description: 'test-subnet-group desc',
-      vpc_id: 'vpc-aabbccdd',
-      subnet_group_status: 'Complete',
-      subnets: [
+      allocated_storage: 5,
+      preferred_backup_window: '23:00-00:00',
+      backup_retention_period: 1,
+      db_security_groups: [],
+      vpc_security_groups: [
         {
-          subnet_identifier: 'subnet-aabbccdd',
-          subnet_availability_zone: {
-            name: 'us-east-1a'
-          },
-          subnet_status: 'Active'
+          vpc_security_group_id: 'sg-aabbccdd',
+          status: 'active'
         },
         {
-          subnet_identifier: 'subnet-ddccbbcc',
-          subnet_availability_zone: {
-            name: 'us-east-1b'
-          },
-          subnet_status: 'Active'
+          vpc_security_group_id: 'sg-ddccbbaa',
+          status: 'active'
         }
-      ]
-    },
-    preferred_maintenance_window: 'sun:00:00-sun:01:00',
-    pending_modified_values: {
-      db_instance_class: nil,
-      allocated_storage: nil,
-      master_user_password: nil,
-      port: nil,
-      backup_retention_period: nil,
-      multi_az: nil,
-      engine_version: nil,
-      iops: nil,
-      db_instance_identifier: nil,
-      storage_type: nil,
-      ca_certificate_identifier: nil
-    },
-    multi_az: true,
-    engine_version: '9.3.3',
-    auto_minor_version_upgrade: true,
-    read_replica_source_db_instance_identifier: nil,
-    read_replica_db_instance_identifiers: [],
-    license_model: 'postgresql-license',
-    iops: 100,
-    option_group_memberships: [
-      {
-        option_group_name: 'default:postgres-9-3',
-        status: 'in-sync'
-      }
-    ],
-    character_set_name: nil,
-    secondary_availability_zone: 'us-east-1b',
-    publicly_accessible: true,
-    status_infos: [],
-    storage_type: 'gp2',
-    tde_credential_arn: nil,
-    storage_encrypted: true,
-    kms_key_id: nil,
-    dbi_resource_id: 'db-AAAAAAAAAAAAAAAAAAAAAAAAAA',
-    ca_certificate_identifier: 'rds-ca-2015'
-  }
-])
+      ],
+      db_parameter_groups: [
+        {
+          db_parameter_group_name: 'default.postgres9.3',
+          parameter_apply_status: 'in-sync'
+        }
+      ],
+      availability_zone: 'us-east-1a',
+      db_subnet_group: {
+        db_subnet_group_name: 'test-subnet-group',
+        db_subnet_group_description: 'test-subnet-group desc',
+        vpc_id: 'vpc-aabbccdd',
+        subnet_group_status: 'Complete',
+        subnets: [
+          {
+            subnet_identifier: 'subnet-aabbccdd',
+            subnet_availability_zone: {
+              name: 'us-east-1a'
+            },
+            subnet_status: 'Active'
+          },
+          {
+            subnet_identifier: 'subnet-ddccbbcc',
+            subnet_availability_zone: {
+              name: 'us-east-1b'
+            },
+            subnet_status: 'Active'
+          }
+        ]
+      },
+      preferred_maintenance_window: 'sun:00:00-sun:01:00',
+      pending_modified_values: {
+        db_instance_class: nil,
+        allocated_storage: nil,
+        master_user_password: nil,
+        port: nil,
+        backup_retention_period: nil,
+        multi_az: nil,
+        engine_version: nil,
+        iops: nil,
+        db_instance_identifier: nil,
+        storage_type: nil,
+        ca_certificate_identifier: nil
+      },
+      multi_az: true,
+      engine_version: '9.3.3',
+      auto_minor_version_upgrade: true,
+      read_replica_source_db_instance_identifier: nil,
+      read_replica_db_instance_identifiers: [],
+      license_model: 'postgresql-license',
+      iops: 100,
+      option_group_memberships: [
+        {
+          option_group_name: 'default:postgres-9-3',
+          status: 'in-sync'
+        }
+      ],
+      character_set_name: nil,
+      secondary_availability_zone: 'us-east-1b',
+      publicly_accessible: true,
+      status_infos: [],
+      storage_type: 'gp2',
+      tde_credential_arn: nil,
+      storage_encrypted: true,
+      kms_key_id: nil,
+      dbi_resource_id: 'db-AAAAAAAAAAAAAAAAAAAAAAAAAA',
+      ca_certificate_identifier: 'rds-ca-2015'
+    }
+  ]
+)
 
 RSpec.describe db_inst = RDS::DBInstance.new('test-rds-db', rds) do
   its(:to_s) { is_expected.to eq 'RDS DBInstance: test-rds-db' }

@@ -5,30 +5,32 @@ autoscaling = Aws::AutoScaling::Client.new
 # stub LaunchConfiguration
 autoscaling.stub_responses(
   :describe_launch_configurations,
-  launch_configurations: [{
-    launch_configuration_name: 'test-config',
-    created_time: Time.new,
-    instance_monitoring: {
-      enabled: true
-    },
-    ebs_optimized: true,
-    associate_public_ip_address: true,
-    placement_tenancy: 'default',
-    image_id: 'ami-aabbccdd',
-    key_name: 'test-key',
-    security_groups: ['sg-aabbccdd', 'sg-ddccbbaa'],
-    classic_link_vpc_id: 'vpc-aabbccdd',
-    classic_link_vpc_security_groups: ['sg-aabbccdd', 'sg-ddccbbaa'],
-    user_data: 'Tm90aGluZyBpbnRlcmVzdGluZyBoZXJlLg==',
-    instance_type: 't1.micro',
-    kernel_id: 'aki-aabbccdd',
-    ramdisk_id: 'ari-aabbccdd',
-    block_device_mappings: [{
-      virtual_name: 'ephemeral0',
-      device_name: '/dev/sdf'
-    }],
-    iam_instance_profile: 'test-instance-profile'
-  }]
+  launch_configurations: [
+    {
+      launch_configuration_name: 'test-config',
+      created_time: Time.new,
+      instance_monitoring: {
+        enabled: true
+      },
+      ebs_optimized: true,
+      associate_public_ip_address: true,
+      placement_tenancy: 'default',
+      image_id: 'ami-aabbccdd',
+      key_name: 'test-key',
+      security_groups: ['sg-aabbccdd', 'sg-ddccbbaa'],
+      classic_link_vpc_id: 'vpc-aabbccdd',
+      classic_link_vpc_security_groups: ['sg-aabbccdd', 'sg-ddccbbaa'],
+      user_data: 'Tm90aGluZyBpbnRlcmVzdGluZyBoZXJlLg==',
+      instance_type: 't1.micro',
+      kernel_id: 'aki-aabbccdd',
+      ramdisk_id: 'ari-aabbccdd',
+      block_device_mappings: [{
+        virtual_name: 'ephemeral0',
+        device_name: '/dev/sdf'
+      }],
+      iam_instance_profile: 'test-instance-profile'
+    }
+  ]
 )
 
 RSpec.describe config = AutoScaling::LaunchConfiguration.new(

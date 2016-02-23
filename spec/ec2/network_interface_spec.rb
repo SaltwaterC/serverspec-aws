@@ -2,51 +2,54 @@
 
 ec2 = Aws::EC2::Client.new
 # stub NetworkInterface
-ec2.stub_responses(:describe_network_interfaces, network_interfaces: [
-  {
-    subnet_id: 'subnet-aabbccdd',
-    vpc_id: 'vpc-aabbccdd',
-    availability_zone: 'us-east-1a',
-    description: 'network interface description',
-    owner_id: '000000000000000000000',
-    requester_id: '111111111111111111111',
-    requester_managed: true,
-    status: 'in-use',
-    mac_address: 'aa:bb:cc:dd:ee:ff',
-    private_ip_address: '10.0.0.1',
-    private_dns_name: nil,
-    source_dest_check: true,
-    groups: [
-      {
-        group_name: 'test-group',
-        group_id: 'sg-aabbccdd'
-      }
-    ],
-    attachment: {
-      attachment_id: 'eni-attach-aabbccdd',
-      instance_id: nil,
-      instance_owner_id: 'amazon-elb',
-      device_index: 1,
-      status: 'attached',
-      delete_on_termination: true
-    },
-    association: nil,
-    tag_set: [
-      {
-        key: 'Name',
-        value: 'test-network-interface'
-      }
-    ],
-    private_ip_addresses: [
-      {
-        private_ip_address: '10.0.0.1',
-        private_dns_name: nil,
-        primary: true,
-        association: nil
-      }
-    ]
-  }
-])
+ec2.stub_responses(
+  :describe_network_interfaces,
+  network_interfaces: [
+    {
+      subnet_id: 'subnet-aabbccdd',
+      vpc_id: 'vpc-aabbccdd',
+      availability_zone: 'us-east-1a',
+      description: 'network interface description',
+      owner_id: '000000000000000000000',
+      requester_id: '111111111111111111111',
+      requester_managed: true,
+      status: 'in-use',
+      mac_address: 'aa:bb:cc:dd:ee:ff',
+      private_ip_address: '10.0.0.1',
+      private_dns_name: nil,
+      source_dest_check: true,
+      groups: [
+        {
+          group_name: 'test-group',
+          group_id: 'sg-aabbccdd'
+        }
+      ],
+      attachment: {
+        attachment_id: 'eni-attach-aabbccdd',
+        instance_id: nil,
+        instance_owner_id: 'amazon-elb',
+        device_index: 1,
+        status: 'attached',
+        delete_on_termination: true
+      },
+      association: nil,
+      tag_set: [
+        {
+          key: 'Name',
+          value: 'test-network-interface'
+        }
+      ],
+      private_ip_addresses: [
+        {
+          private_ip_address: '10.0.0.1',
+          private_dns_name: nil,
+          primary: true,
+          association: nil
+        }
+      ]
+    }
+  ]
+)
 
 RSpec.describe ni = EC2::NetworkInterface.new('eni-aabbccdd', ec2) do
   its(:to_s) { is_expected.to eq 'EC2 NetworkInterface: eni-aabbccdd' }

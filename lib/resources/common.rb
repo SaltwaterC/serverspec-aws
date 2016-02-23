@@ -8,7 +8,7 @@ module Serverspec
     module AWS
       # The Serverspec::Type::AWS::VERSION constant actually sets this library
       # version in the format: major.minor.patch.build
-      VERSION = '0.1.0'
+      VERSION = '0.1.0'.freeze
 
       # Check if the initialization argument of an AWS resource class is present
       # @param arg_name [String] - The name of the init argument
@@ -16,7 +16,7 @@ module Serverspec
       # @param arg [String] - The arg passed to the class constructor
       # @raise [RuntimeError] if arg.nil?
       def check_init_arg(arg_name, class_name, arg)
-        fail "Must specify #{arg_name} for #{class_name}" if arg.nil?
+        raise "Must specify #{arg_name} for #{class_name}" if arg.nil?
       end
 
       # Check the length for operations that should return only one resource
@@ -25,9 +25,9 @@ module Serverspec
       # @raise [RuntimeError] if item.length == 0
       # @raise [RuntimeError] if item.length > 1
       def check_length(item_name, item)
-        fail "No #{item_name} with the specified name were "\
-             'returned' if item.length == 0
-        fail "Multiple #{item_name} with the same name "\
+        raise "No #{item_name} with the specified name were "\
+             'returned' if item.empty?
+        raise "Multiple #{item_name} with the same name "\
              'were returned' if item.length > 1
       end
     end

@@ -1,57 +1,63 @@
 # encoding: utf-8
 
 elb1 = Aws::ElasticLoadBalancing::Client.new
-elb1.stub_responses(:describe_load_balancers, load_balancer_descriptions: [
-  {
-    dns_name: 'internal-test-elb1-000000000.us-east-1.elb.amazonaws.com',
-    canonical_hosted_zone_name: nil,
-    canonical_hosted_zone_name_id: 'AAAAAAAAAAAAAA',
-    listener_descriptions: [
-      {
-        listener: {
-          protocol: 'TCP',
-          load_balancer_port: 80,
-          instance_protocol: 'TCP',
-          instance_port: 80,
-          ssl_certificate_id: nil
+elb1.stub_responses(
+  :describe_load_balancers,
+  load_balancer_descriptions: [
+    {
+      dns_name: 'internal-test-elb1-000000000.us-east-1.elb.amazonaws.com',
+      canonical_hosted_zone_name: nil,
+      canonical_hosted_zone_name_id: 'AAAAAAAAAAAAAA',
+      listener_descriptions: [
+        {
+          listener: {
+            protocol: 'TCP',
+            load_balancer_port: 80,
+            instance_protocol: 'TCP',
+            instance_port: 80,
+            ssl_certificate_id: nil
+          },
+          policy_names: []
+        }
+      ],
+      policies: {},
+      availability_zones: ['us-east-1a', 'us-east-1b'],
+      subnets: ['subnet-aabbccdd', 'subnet-ddccbbaa'],
+      vpc_id: 'vpc-aabbccdd',
+      instances: [
+        {
+          instance_id: 'i-aabbccdd'
         },
-        policy_names: []
-      }
-    ],
-    policies: {},
-    availability_zones: ['us-east-1a', 'us-east-1b'],
-    subnets: ['subnet-aabbccdd', 'subnet-ddccbbaa'],
-    vpc_id: 'vpc-aabbccdd',
-    instances: [
-      {
-        instance_id: 'i-aabbccdd'
+        {
+          instance_id: 'i-ddccbbaa'
+        }
+      ],
+      health_check: {
+        target: 'HTTP:80/health_check',
+        interval: 10,
+        timeout: 5,
+        unhealthy_threshold: 2,
+        healthy_threshold: 5
       },
-      {
-        instance_id: 'i-ddccbbaa'
-      }
-    ],
-    health_check: {
-      target: 'HTTP:80/health_check',
-      interval: 10,
-      timeout: 5,
-      unhealthy_threshold: 2,
-      healthy_threshold: 5
-    },
-    source_security_group: {
-      owner_alias: '111111111111',
-      group_name: 'test-group'
-    },
-    security_groups: ['sg-aabbccdd', 'sg-ddccbbaa'],
-    scheme: 'internal'
-  }
-])
+      source_security_group: {
+        owner_alias: '111111111111',
+        group_name: 'test-group'
+      },
+      security_groups: ['sg-aabbccdd', 'sg-ddccbbaa'],
+      scheme: 'internal'
+    }
+  ]
+)
 
 elb2 = Aws::ElasticLoadBalancing::Client.new
-elb2.stub_responses(:describe_load_balancers, load_balancer_descriptions: [
-  {
-    scheme: 'internet-facing'
-  }
-])
+elb2.stub_responses(
+  :describe_load_balancers,
+  load_balancer_descriptions: [
+    {
+      scheme: 'internet-facing'
+    }
+  ]
+)
 
 RSpec.describe elb1 = ElasticLoadBalancing::LoadBalancer.new(
   'test-elb1',
