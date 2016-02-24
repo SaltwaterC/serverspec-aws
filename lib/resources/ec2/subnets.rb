@@ -24,6 +24,12 @@ module Serverspec
 
             true
           end
+          
+          # Returns the string representation of EC2::Subnet
+          # @return [String]
+          def to_s
+            "EC2 Subnets: #{@subnets.map(&:id)}"
+          end
 
           private
 
