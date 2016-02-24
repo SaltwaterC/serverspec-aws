@@ -2,50 +2,53 @@
 
 ec2 = Aws::EC2::Client.new
 # stub SecurityGroup
-ec2.stub_responses(:describe_security_groups, security_groups: [
-  {
-    owner_id: '000000000000000000000',
-    group_name: 'test-group',
-    description: 'test-group description',
-    ip_permissions: [
-      {
-        ip_protocol: 'tcp',
-        from_port: 443,
-        to_port: 443,
-        user_id_group_pairs: [
-          {
-            user_id: '000000000000000000000',
-            group_name: nil,
-            group_id: 'sg-ddccbbaa'
-          }
-        ],
-        ip_ranges: [],
-        prefix_list_ids: []
-      }
-    ],
-    ip_permissions_egress: [
-      {
-        ip_protocol: '-1',
-        from_port: nil,
-        to_port: nil,
-        user_id_group_pairs: [],
-        ip_ranges: [
-          {
-            cidr_ip: '0.0.0.0/0'
-          }
-        ],
-        prefix_list_ids: []
-      }
-    ],
-    vpc_id: 'vpc-aabbccdd',
-    tags: [
-      {
-        key: 'Name',
-        value: 'test-group'
-      }
-    ]
-  }
-])
+ec2.stub_responses(
+  :describe_security_groups,
+  security_groups: [
+    {
+      owner_id: '000000000000000000000',
+      group_name: 'test-group',
+      description: 'test-group description',
+      ip_permissions: [
+        {
+          ip_protocol: 'tcp',
+          from_port: 443,
+          to_port: 443,
+          user_id_group_pairs: [
+            {
+              user_id: '000000000000000000000',
+              group_name: nil,
+              group_id: 'sg-ddccbbaa'
+            }
+          ],
+          ip_ranges: [],
+          prefix_list_ids: []
+        }
+      ],
+      ip_permissions_egress: [
+        {
+          ip_protocol: '-1',
+          from_port: nil,
+          to_port: nil,
+          user_id_group_pairs: [],
+          ip_ranges: [
+            {
+              cidr_ip: '0.0.0.0/0'
+            }
+          ],
+          prefix_list_ids: []
+        }
+      ],
+      vpc_id: 'vpc-aabbccdd',
+      tags: [
+        {
+          key: 'Name',
+          value: 'test-group'
+        }
+      ]
+    }
+  ]
+)
 
 RSpec.describe sg = EC2::SecurityGroup.new('sg-aabbccdd', ec2) do
   its(:to_s) { is_expected.to eq 'EC2 SecurityGroup: sg-aabbccdd' }

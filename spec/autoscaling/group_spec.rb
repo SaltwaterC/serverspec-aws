@@ -5,70 +5,74 @@ autoscaling = Aws::AutoScaling::Client.new
 # stub Group
 autoscaling.stub_responses(
   :describe_auto_scaling_groups,
-  auto_scaling_groups: [{
-    auto_scaling_group_name: 'test-group',
-    created_time: Time.new,
-    launch_configuration_name: 'test-config',
-    min_size: 2,
-    max_size: 4,
-    desired_capacity: 2,
-    default_cooldown: 300,
-    availability_zones: ['us-east-1a', 'us-east-1b'],
-    load_balancer_names: ['test-elb'],
-    health_check_type: 'EC2',
-    health_check_grace_period: 300,
-    instances: [{
-      instance_id: 'i-aabbccdd',
-      availability_zone: 'us-east-1a',
-      lifecycle_state: 'InService',
-      health_status: 'Healthy',
+[
+    {
+      auto_scaling_group_name: 'test-group',
+      created_time: Time.new,
       launch_configuration_name: 'test-config',
-      protected_from_scale_in: false
-    }],
-    suspended_processes: [{
-      process_name: 'AZRebalance',
-      suspension_reason: 'User suspended at 2015-05-25T00:00:00Z'
-    }],
-    placement_group: 'test-placement-group',
-    vpc_zone_identifier: 'subnet-aabbccdd,subnet-ddccbbaa',
-    enabled_metrics: [{
-      metric: 'GroupTotalInstances',
-      granularity: '1Minute'
-    }],
-    status: nil,
-    tags: [{
-      resource_id: 'test-group',
-      resource_type: 'auto-scaling-group',
-      key: 'Name',
-      value: 'test-group',
-      propagate_at_launch: true
-    }],
-    termination_policies: %w(
-      OldestLaunchConfiguration
-      ClosestToNextInstanceHour
-    )
-  }]
+      min_size: 2,
+      max_size: 4,
+      desired_capacity: 2,
+      default_cooldown: 300,
+      availability_zones: ['us-east-1a', 'us-east-1b'],
+      load_balancer_names: ['test-elb'],
+      health_check_type: 'EC2',
+      health_check_grace_period: 300,
+      instances: [{
+        instance_id: 'i-aabbccdd',
+        availability_zone: 'us-east-1a',
+        lifecycle_state: 'InService',
+        health_status: 'Healthy',
+        launch_configuration_name: 'test-config',
+        protected_from_scale_in: false
+      }],
+      suspended_processes: [{
+        process_name: 'AZRebalance',
+        suspension_reason: 'User suspended at 2015-05-25T00:00:00Z'
+      }],
+      placement_group: 'test-placement-group',
+      vpc_zone_identifier: 'subnet-aabbccdd,subnet-ddccbbaa',
+      enabled_metrics: [{
+        metric: 'GroupTotalInstances',
+        granularity: '1Minute'
+      }],
+      status: nil,
+      tags: [{
+        resource_id: 'test-group',
+        resource_type: 'auto-scaling-group',
+        key: 'Name',
+        value: 'test-group',
+        propagate_at_launch: true
+      }],
+      termination_policies: %w(
+        OldestLaunchConfiguration
+        ClosestToNextInstanceHour
+      )
+    }
+  ]
 )
 
 # stub Policies (which are exposed by Group anyway)
 autoscaling.stub_responses(
   :describe_policies,
-  scaling_policies: [{
-    auto_scaling_group_name: 'test-group',
-    policy_name: 'scale-on-high-cpu',
-    scaling_adjustment: 2,
-    adjustment_type: 'ChangeInCapacity',
-    min_adjustment_step: 0,
-    cooldown: 300,
-    policy_arn: 'arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:'\
-      'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee:autoScalingGroupName/test-group:'\
-      'policyName/scale-on-high-cpu',
-    alarms: [{
-      alarm_name: 'cpu-utilization',
-      alarm_arn: 'arn:aws:cloudwatch:us-east-1:000000000000:alarm:'\
-        'cpu-utilization'
-    }]
-  }]
+  scaling_policies: [
+    {
+      auto_scaling_group_name: 'test-group',
+      policy_name: 'scale-on-high-cpu',
+      scaling_adjustment: 2,
+      adjustment_type: 'ChangeInCapacity',
+      min_adjustment_step: 0,
+      cooldown: 300,
+      policy_arn: 'arn:aws:autoscaling:us-east-1:000000000000:scalingPolicy:'\
+        'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee:autoScalingGroupName/test-group:'\
+        'policyName/scale-on-high-cpu',
+      alarms: [{
+        alarm_name: 'cpu-utilization',
+        alarm_arn: 'arn:aws:cloudwatch:us-east-1:000000000000:alarm:'\
+          'cpu-utilization'
+      }]
+    }
+  ]
 )
 
 RSpec.describe group = AutoScaling::Group.new('test-group', autoscaling) do

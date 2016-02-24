@@ -1,78 +1,82 @@
 # encoding: utf-8
 
 rs = Aws::Redshift::Client.new
-rs.stub_responses(:describe_clusters, clusters: [
-  {
-    cluster_status: 'available',
-    allow_version_upgrade: true,
-    publicly_accessible: true,
-    encrypted: true,
-    node_type: 'dw2.large',
-    modify_status: nil,
-    master_username: 'test-user',
-    db_name: 'test-database',
-    endpoint: {
-      address: 'test-cluster.aaaaaaaaaaaa.us-east-1.amazonaws.com',
-      port: 5439
-    },
-    automated_snapshot_retention_period: 7,
-    cluster_security_groups: [],
-    vpc_security_groups: [
-      {
-        vpc_security_group_id: 'sg-aabbccdd',
-        status: 'active'
+rs.stub_responses(
+  :describe_clusters,
+  clusters: [
+    {
+      cluster_status: 'available',
+      allow_version_upgrade: true,
+      publicly_accessible: true,
+      encrypted: true,
+      node_type: 'dw2.large',
+      modify_status: nil,
+      master_username: 'test-user',
+      db_name: 'test-database',
+      endpoint: {
+        address: 'test-cluster.aaaaaaaaaaaa.us-east-1.amazonaws.com',
+        port: 5439
       },
-      {
-        vpc_security_group_id: 'sg-ddccbbaa',
-        status: 'active'
-      }
-    ],
-    cluster_parameter_groups: [
-      {
-        parameter_group_name: 'test-parameter-group'
-      }
-    ],
-    cluster_subnet_group_name: 'test-subnet-group',
-    vpc_id: 'vpc-aabbccdd',
-    availability_zone: 'us-east-1a',
-    preferred_maintenance_window: 'wed:23:30-thu:00:00',
-    pending_modified_values: {
-      master_user_password: nil,
-      node_type: nil,
-      number_of_nodes: nil,
-      cluster_type: nil,
-      cluster_version: nil,
-      automated_snapshot_retention_period: nil,
-      cluster_identifier: nil
-    },
-    cluster_version: '1.0',
-    number_of_nodes: 3,
-    restore_status: nil,
-    hsm_status: nil,
-    cluster_snapshot_copy_status: nil,
-    cluster_public_key: 'ssh-rsa AAAAbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
-      'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
-      'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
-      'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
-      'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
-      'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb Amazon-Redshift\n',
-    cluster_nodes: [
-      {
-        node_role: 'SHARED',
-        private_ip_address: '10.0.0.10',
-        public_ip_address: '55.55.55.55'
-      }
-    ],
-    cluster_revision_number: '934',
-    tags: [
-      {
-        key: 'Name',
-        value: 'test-cluster'
-      }
-    ],
-    kms_key_id: nil
-  }
-])
+      automated_snapshot_retention_period: 7,
+      cluster_security_groups: [],
+      vpc_security_groups: [
+        {
+          vpc_security_group_id: 'sg-aabbccdd',
+          status: 'active'
+        },
+        {
+          vpc_security_group_id: 'sg-ddccbbaa',
+          status: 'active'
+        }
+      ],
+      cluster_parameter_groups: [
+        {
+          parameter_group_name: 'test-parameter-group'
+        }
+      ],
+      cluster_subnet_group_name: 'test-subnet-group',
+      vpc_id: 'vpc-aabbccdd',
+      availability_zone: 'us-east-1a',
+      preferred_maintenance_window: 'wed:23:30-thu:00:00',
+      pending_modified_values: {
+        master_user_password: nil,
+        node_type: nil,
+        number_of_nodes: nil,
+        cluster_type: nil,
+        cluster_version: nil,
+        automated_snapshot_retention_period: nil,
+        cluster_identifier: nil
+      },
+      cluster_version: '1.0',
+      number_of_nodes: 3,
+      restore_status: nil,
+      hsm_status: nil,
+      cluster_snapshot_copy_status: nil,
+      cluster_public_key: 'ssh-rsa AAAAbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
+        'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
+        'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
+        'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
+        'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'\
+        'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb '\
+        'Amazon-Redshift\n',
+      cluster_nodes: [
+        {
+          node_role: 'SHARED',
+          private_ip_address: '10.0.0.10',
+          public_ip_address: '55.55.55.55'
+        }
+      ],
+      cluster_revision_number: '934',
+      tags: [
+        {
+          key: 'Name',
+          value: 'test-cluster'
+        }
+      ],
+      kms_key_id: nil
+    }
+  ]
+)
 
 RSpec.describe cluster = Redshift::Cluster.new('test-cluster', rs) do
   its(:to_s) { is_expected.to eq 'Redshift Cluster: test-cluster' }

@@ -2,22 +2,24 @@
 
 ec2 = Aws::EC2::Client.new
 # stub VPC
-ec2.stub_responses(:describe_vpcs, vpcs: [
-  {
-    vpc_id: 'vpc-aabbccdd',
-    state: 'available',
-    cidr_block: '10.0.0.0/16',
-    dhcp_options_id: 'dopt-aabbccdd',
-    tags: [
-      {
-        key: 'Name',
-        value: 'test-vpc'
-      }
-    ],
-    instance_tenancy: 'default',
-    is_default: false
-  }
-])
+ec2.stub_responses(
+  :describe_vpcs, vpcs: [
+    {
+      vpc_id: 'vpc-aabbccdd',
+      state: 'available',
+      cidr_block: '10.0.0.0/16',
+      dhcp_options_id: 'dopt-aabbccdd',
+      tags: [
+        {
+          key: 'Name',
+          value: 'test-vpc'
+        }
+      ],
+      instance_tenancy: 'default',
+      is_default: false
+    }
+  ]
+)
 
 RSpec.describe vpc = EC2::VPC.new('vpc-aabbccdd', ec2) do
   its(:to_s) { is_expected.to eq 'EC2 VPC: vpc-aabbccdd' }

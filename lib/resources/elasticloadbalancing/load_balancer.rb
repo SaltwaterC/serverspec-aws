@@ -147,11 +147,9 @@ module Serverspec
 
           # @private
           def get_instance(instance)
-            if instance.nil?
-              @aws = Aws::ElasticLoadBalancing::Client.new
-            else
-              @aws = instance
-            end
+            @aws = (
+              instance.nil? ? Aws::ElasticLoadBalancing::Client.new : instance
+            )
           end
         end
       end

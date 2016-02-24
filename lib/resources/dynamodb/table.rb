@@ -146,7 +146,7 @@ module Serverspec
           # @private
           def key_type?(type)
             @table.key_schema.each do |key|
-              return true if key.key_type == type.upcase
+              return true if key.key_type.casecmp(type)
             end
             false
           end

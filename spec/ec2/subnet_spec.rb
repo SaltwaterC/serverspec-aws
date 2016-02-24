@@ -2,23 +2,26 @@
 
 ec2 = Aws::EC2::Client.new
 # stub Subnet
-ec2.stub_responses(:describe_subnets, subnets: [
-  {
-    state: 'available',
-    vpc_id: 'vpc-aabbccdd',
-    cidr_block: '10.0.0.0/24',
-    available_ip_address_count: 240,
-    availability_zone: 'us-east-1a',
-    default_for_az: true,
-    map_public_ip_on_launch: true,
-    tags: [
-      {
-        key: 'Name',
-        value: 'test-subnet'
-      }
-    ]
-  }
-])
+ec2.stub_responses(
+  :describe_subnets,
+  subnets: [
+    {
+      state: 'available',
+      vpc_id: 'vpc-aabbccdd',
+      cidr_block: '10.0.0.0/24',
+      available_ip_address_count: 240,
+      availability_zone: 'us-east-1a',
+      default_for_az: true,
+      map_public_ip_on_launch: true,
+      tags: [
+        {
+          key: 'Name',
+          value: 'test-subnet'
+        }
+      ]
+    }
+  ]
+)
 
 RSpec.describe subnet = EC2::Subnet.new('subnet-aabbccdd', ec2) do
   its(:to_s) { is_expected.to eq 'EC2 Subnet: subnet-aabbccdd' }
