@@ -4,3 +4,4 @@ doc/
 Gemfile.lock
 serverspec-aws.gemfile
 .bundle/
+/pkg/
