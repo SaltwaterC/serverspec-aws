@@ -22,7 +22,8 @@ autoscaling.stub_responses(
       availability_zone: 'us-east-1a',
       lifecycle_state: 'InService',
       health_status: 'Healthy',
-      launch_configuration_name: 'test-config'
+      launch_configuration_name: 'test-config',
+      protected_from_scale_in: false
     }],
     suspended_processes: [{
       process_name: 'AZRebalance',

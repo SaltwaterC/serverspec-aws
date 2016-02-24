@@ -60,6 +60,11 @@ module Serverspec
           def tags
             @vpc.tags
           end
+          
+          # Get the subnets associated with the VPC
+          def subnets
+            Subnets.new (Aws::EC2::Vpc.new(@vpc_id, :client => @aws).subnets)
+          end
 
           private
 
