@@ -61,6 +61,7 @@ ec2.stub_responses(
 
 RSpec.describe vpc = EC2::VPC.new('vpc-aabbccdd', ec2) do
   describe vpc.subnets do
+    its(:to_s) { is_expected.to eq 'EC2 Subnets: ["subnet-aaaaaa", "subnet-aaaaab"]' }
     it { should be_evenly_spread_across_minimum_az(2) }
   end
 end
