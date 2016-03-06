@@ -2,7 +2,7 @@
 .yardoc
 doc/
 Gemfile.lock
-serverspec-aws.gemfile
+serverspec-aws.gemspec
 .bundle/
 /pkg/
 /.project
