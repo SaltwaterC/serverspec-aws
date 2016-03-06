@@ -278,6 +278,30 @@ resource.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#subnets-instance_method" title="#subnets (instance method)">- (Object) <strong>subnets</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get the subnets associated with the VPC.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#tags-instance_method" title="#tags (instance method)">- (Array(Hash)) <strong>tags</strong> </a>
     
 
@@ -741,6 +765,47 @@ default if the default options are associated with the VPC)</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="subnets-instance_method">
+  
+    - (<tt>Object</tt>) <strong>subnets</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the subnets associated with the VPC</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/vpc.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subnets'>subnets</span>
+  <span class='const'>Subnets</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='const'>Aws</span><span class='op'>::</span><span class='const'>EC2</span><span class='op'>::</span><span class='const'>Vpc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@vpc_id</span><span class='comma'>,</span> <span class='label'>client:</span> <span class='ivar'>@aws</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_subnets'>subnets</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="tags-instance_method">
   
     - (<tt>Array(Hash)</tt>) <strong>tags</strong> 
@@ -853,9 +918,9 @@ default if the default options are associated with the VPC)</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Jul  2 01:45:13 2015 by
+  Generated on Sun Mar  6 14:47:41 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.2.2).
+  0.8.7.6 (ruby-2.1.6).
 </div>
 
   </body>
