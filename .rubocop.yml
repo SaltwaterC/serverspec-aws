@@ -1,26 +1,24 @@
+AllCops:
+  Exclude:
+    - 'serverspec-aws.gemspec'
+
 Style/Encoding:
   Enabled: true
-  Exclude: ['serverspec-aws.gemspec']
 
 Style/UnneededPercentQ:
   Enabled: true
-  Exclude: ['serverspec-aws.gemspec']
 
 Style/StringLiterals:
   Enabled: true
-  Exclude: ['serverspec-aws.gemspec']
 
 Style/TrailingBlankLines:
   Enabled: true
-  Exclude: ['serverspec-aws.gemspec']
 
 Style/PercentLiteralDelimiters:
   Enabled: true
-  Exclude: ['serverspec-aws.gemspec']
 
 Style/MultilineIfThen:
   Enabled: true
-  Exclude: ['serverspec-aws.gemspec']
 
 Style/FileName:
   Enabled: true
@@ -29,4 +27,3 @@ Style/FileName:
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
   Max: 80
-  Exclude: ['serverspec-aws.gemspec']

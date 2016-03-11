@@ -24,7 +24,7 @@ module Serverspec
 
             true
           end
-          
+
           # Returns the string representation of EC2::Subnet
           # @return [String]
           def to_s
