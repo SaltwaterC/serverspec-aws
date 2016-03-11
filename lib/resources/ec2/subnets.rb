@@ -10,6 +10,11 @@ module Serverspec
         # The Subnets class provides serverspec expectations for a collection
         # of EC2::Subnet resources
         class Subnets < Base
+          include Enumerable
+          extend Forwardable
+
+          def_delegators :@subnets, :each, :<<
+
           def initialize(subnets)
             @subnets = subnets
           end

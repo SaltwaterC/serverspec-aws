@@ -60,11 +60,17 @@ ec2.stub_responses(
 )
 
 RSpec.describe vpc = EC2::VPC.new('vpc-aabbccdd', ec2) do
-  describe vpc.subnets do
+  describe subnets = vpc.subnets do
     its(:to_s) do
       is_expected.to eq 'EC2 Subnets: ["subnet-aaaaaa", "subnet-aaaaab"]'
     end
 
     it { should be_evenly_spread_across_minimum_az(2) }
+
+    subnets.each do |subnet|
+      describe subnet do
+        its(:availability_zone) { should start_with 'us-east-1' }
+      end
+    end
   end
 end
