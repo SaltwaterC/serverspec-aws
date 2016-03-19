@@ -9,7 +9,7 @@ begin
     gem.version     = Serverspec::Type::AWS::VERSION
     gem.summary     = %(Serverspec for AWS)
     gem.description = %(Serverspec resources for testing the AWS infrastructure)
-    gem.authors     = %w(Ștefan Rusu)
+    gem.author      = 'Ștefan Rusu'
     gem.email       = 'saltwaterc@gmail.com'
     gem.files       = Dir['lib/*.rb'] + Dir['lib/resources/*.rb']
     gem.license     = 'BSD-3-Clause'
