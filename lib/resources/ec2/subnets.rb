@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'forwardable'
+
 # Inspired by https://github.com/stelligent/serverspec-aws-resources
 
 module Serverspec
