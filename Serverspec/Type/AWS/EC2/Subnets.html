@@ -90,7 +90,15 @@
   
   
     
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2">Forwardable</dd>
+      
+    
   
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1">Enumerable</dd>
+      
     
   
   
@@ -204,6 +212,8 @@ EC2::Subnet resources</p>
   
 
 
+  
+  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -233,12 +243,12 @@ EC2::Subnet resources</p>
       <pre class="lines">
 
 
-13
-14
-15</pre>
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/subnets.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/subnets.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_subnets'>subnets</span><span class='rparen'>)</span>
   <span class='ivar'>@subnets</span> <span class='op'>=</span> <span class='id identifier rubyid_subnets'>subnets</span>
@@ -292,19 +302,19 @@ EC2::Subnet resources</p>
       <pre class="lines">
 
 
-17
-18
-19
-20
-21
-22
-23
 24
 25
-26</pre>
+26
+27
+28
+29
+30
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/subnets.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/subnets.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_evenly_spread_across_minimum_az?'>evenly_spread_across_minimum_az?</span><span class='lparen'>(</span><span class='id identifier rubyid_num_azs'>num_azs</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_subnet_grouping_by_az'>subnet_grouping_by_az</span> <span class='op'>=</span> <span class='ivar'>@subnets</span><span class='period'>.</span><span class='id identifier rubyid_group_by'>group_by</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:availability_zone</span><span class='rparen'>)</span>
@@ -360,12 +370,12 @@ EC2::Subnet resources</p>
       <pre class="lines">
 
 
-30
-31
-32</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/subnets.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/subnets.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>EC2 Subnets: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@subnets</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:id</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -380,7 +390,7 @@ EC2::Subnet resources</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Mar  6 14:47:42 2016 by
+  Generated on Sat Mar 19 09:48:29 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.6).
 </div>
