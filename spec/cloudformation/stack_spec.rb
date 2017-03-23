@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # because RSpec doesn't run tests in order I need to make sure that each
 # of the CloudFormation stacks has distinct context
 cloudformation1 = Aws::CloudFormation::Client.new

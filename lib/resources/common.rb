@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # The Serverspec module contains all the Serverspec resources
 module Serverspec
   # The Type module contains the Serverspec types
@@ -25,10 +23,15 @@ module Serverspec
       # @raise [RuntimeError] if item.length == 0
       # @raise [RuntimeError] if item.length > 1
       def check_length(item_name, item)
-        raise "No #{item_name} with the specified name were "\
-             'returned' if item.empty?
-        raise "Multiple #{item_name} with the same name "\
-             'were returned' if item.length > 1
+        return if item.length == 1
+
+        if item.empty?
+          raise "No #{item_name} with the specified name were"\
+            'returned'
+        else
+          raise "Multiple #{item_name} with the same name "\
+               'were returned'
+        end
       end
     end
   end

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 rds = Aws::RDS::Client.new
 rds.stub_responses(
   :describe_db_instances,

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Serverspec
   module Type
     module AWS
@@ -111,9 +109,11 @@ module Serverspec
           # @return [Symbol]
           def hash_key_type
             @table.attribute_definitions.each do |attr|
-              return @type_map[
-                attr.attribute_type
-              ] if attr.attribute_name == hash_key_name
+              if attr.attribute_name == hash_key_name
+                return @type_map[
+                  attr.attribute_type
+                ]
+              end
             end
           end
 
@@ -130,9 +130,11 @@ module Serverspec
           # @return [Symbol]
           def range_key_type
             @table.attribute_definitions.each do |attr|
-              return @type_map[
-                attr.attribute_type
-              ] if attr.attribute_name == range_key_name
+              if attr.attribute_name == range_key_name
+                return @type_map[
+                  attr.attribute_type
+                ]
+              end
             end
           end
 

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 group :red_green_refactor, halt_on_fail: true do
   guard :rubocop
 

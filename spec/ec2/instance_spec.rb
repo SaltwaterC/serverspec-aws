@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 ec21 = Aws::EC2::Client.new
 # stub Instance
 ec21.stub_responses(

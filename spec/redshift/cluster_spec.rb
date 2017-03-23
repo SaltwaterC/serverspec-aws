@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 rs = Aws::Redshift::Client.new
 rs.stub_responses(
   :describe_clusters,

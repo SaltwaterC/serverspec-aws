@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 ec2 = Aws::EC2::Client.new
 
 ec2.stub_responses(

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 key_schema = [
   {
     attribute_name: 'test-hash-attrib',

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 autoscaling = Aws::AutoScaling::Client.new
 
 # stub Group

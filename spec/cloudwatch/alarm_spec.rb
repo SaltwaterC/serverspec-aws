@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 cloudwatch = Aws::CloudWatch::Client.new
 cloudwatch.stub_responses(
   :describe_alarms,

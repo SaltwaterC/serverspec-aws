@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 elb1 = Aws::ElasticLoadBalancing::Client.new
 elb1.stub_responses(
   :describe_load_balancers,
