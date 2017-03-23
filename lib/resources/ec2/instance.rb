@@ -48,7 +48,7 @@ module Serverspec
 
           # Returns true if the platform is Windows
           def on_windows?
-            @instance.platform == 'Windows'
+            @instance.platform.casecmp('windows').zero?
           end
 
           # Specifies whether the Instance launched in a VPC is able to perform

@@ -25,7 +25,7 @@ ec21.stub_responses(
           kernel_id: 'aki-aabbccdd',
           ramdisk_id: 'ari-aabbccdd',
           # this is not consistent, but the testing must be done
-          platform: 'Windows',
+          platform: 'windows',
           monitoring: {
             state: 'enabled'
           },
