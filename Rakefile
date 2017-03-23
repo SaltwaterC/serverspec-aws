@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # Jeweler stuff
 begin
   require 'jeweler'
