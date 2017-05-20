@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'aws-sdk', '~>2'
+gem 'netaddr', '~>1.5'
 gem 'require_all', '~>1'
 gem 'serverspec', '~>2'
 

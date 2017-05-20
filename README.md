@@ -13,3 +13,17 @@ There aren't examples per se, but you can take a peek at the spec directory. The
 ## Contributors
 
  * [Tim Myerscough](https://github.com/temyers)
+
+## Development
+
+The following docker container will give you a command shell into an environment for development
+```
+docker run -v $PWD:/root -it ruby:2.4 /bin/bash
+```
+
+## Running Tests
+
+```
+bundle install
+rake spec
+```

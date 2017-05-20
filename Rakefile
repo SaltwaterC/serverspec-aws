@@ -66,7 +66,7 @@ task :cleanup do
 end
 
 desc 'Runs the rubocop and the spec tasks'
-task test: [:rubocop, :spec]
+task test: [:spec, :rubocop]
 
 # Testing stuff
 task default: [:test]

@@ -24,6 +24,9 @@ Style/FileName:
   Enabled: true
   Exclude: ['lib/serverspec-aws.rb']
 
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
   Max: 80

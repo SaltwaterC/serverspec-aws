@@ -1,97 +1,159 @@
 rds = Aws::RDS::Client.new
+ec2 = Aws::EC2::Client.new
+
+db_stub_response = {
+  db_instance_class: 'db.t2.micro',
+  engine: 'postgres',
+  db_instance_status: 'available',
+  master_username: 'test-username',
+  db_name: 'test-database',
+  endpoint: {
+    address: 'test-rds-db.aaaaaaaaaaaa.us-east-1.rds.amazonaws.com'
+  },
+  allocated_storage: 5,
+  preferred_backup_window: '23:00-00:00',
+  backup_retention_period: 1,
+  db_security_groups: [],
+  vpc_security_groups: [
+    {
+      vpc_security_group_id: 'sg-aabbccdd',
+      status: 'active'
+    },
+    {
+      vpc_security_group_id: 'sg-ddccbbaa',
+      status: 'active'
+    }
+  ],
+  db_parameter_groups: [
+    {
+      db_parameter_group_name: 'default.postgres9.3',
+      parameter_apply_status: 'in-sync'
+    }
+  ],
+  availability_zone: 'us-east-1a',
+  db_subnet_group: {
+    db_subnet_group_name: 'test-subnet-group',
+    db_subnet_group_description: 'test-subnet-group desc',
+    vpc_id: 'vpc-aabbccdd',
+    subnet_group_status: 'Complete',
+    subnets: [
+      {
+        subnet_identifier: 'subnet-aabbccdd',
+        subnet_availability_zone: {
+          name: 'us-east-1a'
+        },
+        subnet_status: 'Active'
+      },
+      {
+        subnet_identifier: 'subnet-ddccbbcc',
+        subnet_availability_zone: {
+          name: 'us-east-1b'
+        },
+        subnet_status: 'Active'
+      }
+    ]
+  },
+  preferred_maintenance_window: 'sun:00:00-sun:01:00',
+  pending_modified_values: {
+    db_instance_class: nil,
+    allocated_storage: nil,
+    master_user_password: nil,
+    port: nil,
+    backup_retention_period: nil,
+    multi_az: nil,
+    engine_version: nil,
+    iops: nil,
+    db_instance_identifier: nil,
+    storage_type: nil,
+    ca_certificate_identifier: nil
+  },
+  multi_az: true,
+  engine_version: '9.3.3',
+  auto_minor_version_upgrade: true,
+  read_replica_source_db_instance_identifier: nil,
+  read_replica_db_instance_identifiers: [],
+  license_model: 'postgresql-license',
+  iops: 100,
+  option_group_memberships: [
+    {
+      option_group_name: 'default:postgres-9-3',
+      status: 'in-sync'
+    }
+  ],
+  character_set_name: nil,
+  secondary_availability_zone: 'us-east-1b',
+  publicly_accessible: true,
+  status_infos: [],
+  storage_type: 'gp2',
+  tde_credential_arn: nil,
+  storage_encrypted: true,
+  kms_key_id: nil,
+  dbi_resource_id: 'db-AAAAAAAAAAAAAAAAAAAAAAAAAA',
+  ca_certificate_identifier: 'rds-ca-2015'
+}
+
+# rubocop:disable Metrics/MethodLength
+def security_group(id, overrides = {})
+  template = {
+    owner_id: '000000000000000000000',
+    group_name: 'test-group',
+    group_id: id,
+    description: 'test-group description',
+    ip_permissions: [],
+    ip_permissions_egress: [
+      {
+        ip_protocol: '-1',
+        from_port: nil,
+        to_port: nil,
+        user_id_group_pairs: [],
+        ip_ranges: [
+          {
+            cidr_ip: '0.0.0.0/0'
+          }
+        ],
+        prefix_list_ids: []
+      }
+    ],
+    vpc_id: 'vpc-aabbccdd',
+    tags: [
+      {
+        key: 'Name',
+        value: 'test-group'
+      }
+    ]
+  }
+
+  stub_response(template, overrides)
+end
+# rubocop:enable
+
+def rule(cidr)
+  {
+    ip_protocol: 'tcp',
+    from_port: 3306,
+    to_port: 3306,
+    user_id_group_pairs: [],
+    ip_ranges: [
+      { cidr_ip: cidr }
+    ],
+    prefix_list_ids: []
+  }
+end
+
+def stub_security_groups(ec2, sg_aabbccdd, sg_ddccbbaa)
+  ec2.stub_responses(
+    :describe_security_groups,
+    [
+      { security_groups: [sg_aabbccdd] },
+      { security_groups: [sg_ddccbbaa] }
+    ]
+  )
+end
+
 rds.stub_responses(
   :describe_db_instances,
   db_instances: [
-    {
-      db_instance_class: 'db.t2.micro',
-      engine: 'postgres',
-      db_instance_status: 'available',
-      master_username: 'test-username',
-      db_name: 'test-database',
-      endpoint: {
-        address: 'test-rds-db.aaaaaaaaaaaa.us-east-1.rds.amazonaws.com'
-      },
-      allocated_storage: 5,
-      preferred_backup_window: '23:00-00:00',
-      backup_retention_period: 1,
-      db_security_groups: [],
-      vpc_security_groups: [
-        {
-          vpc_security_group_id: 'sg-aabbccdd',
-          status: 'active'
-        },
-        {
-          vpc_security_group_id: 'sg-ddccbbaa',
-          status: 'active'
-        }
-      ],
-      db_parameter_groups: [
-        {
-          db_parameter_group_name: 'default.postgres9.3',
-          parameter_apply_status: 'in-sync'
-        }
-      ],
-      availability_zone: 'us-east-1a',
-      db_subnet_group: {
-        db_subnet_group_name: 'test-subnet-group',
-        db_subnet_group_description: 'test-subnet-group desc',
-        vpc_id: 'vpc-aabbccdd',
-        subnet_group_status: 'Complete',
-        subnets: [
-          {
-            subnet_identifier: 'subnet-aabbccdd',
-            subnet_availability_zone: {
-              name: 'us-east-1a'
-            },
-            subnet_status: 'Active'
-          },
-          {
-            subnet_identifier: 'subnet-ddccbbcc',
-            subnet_availability_zone: {
-              name: 'us-east-1b'
-            },
-            subnet_status: 'Active'
-          }
-        ]
-      },
-      preferred_maintenance_window: 'sun:00:00-sun:01:00',
-      pending_modified_values: {
-        db_instance_class: nil,
-        allocated_storage: nil,
-        master_user_password: nil,
-        port: nil,
-        backup_retention_period: nil,
-        multi_az: nil,
-        engine_version: nil,
-        iops: nil,
-        db_instance_identifier: nil,
-        storage_type: nil,
-        ca_certificate_identifier: nil
-      },
-      multi_az: true,
-      engine_version: '9.3.3',
-      auto_minor_version_upgrade: true,
-      read_replica_source_db_instance_identifier: nil,
-      read_replica_db_instance_identifiers: [],
-      license_model: 'postgresql-license',
-      iops: 100,
-      option_group_memberships: [
-        {
-          option_group_name: 'default:postgres-9-3',
-          status: 'in-sync'
-        }
-      ],
-      character_set_name: nil,
-      secondary_availability_zone: 'us-east-1b',
-      publicly_accessible: true,
-      status_infos: [],
-      storage_type: 'gp2',
-      tde_credential_arn: nil,
-      storage_encrypted: true,
-      kms_key_id: nil,
-      dbi_resource_id: 'db-AAAAAAAAAAAAAAAAAAAAAAAAAA',
-      ca_certificate_identifier: 'rds-ca-2015'
-    }
+    db_stub_response
   ]
 )
 
@@ -182,4 +244,83 @@ RSpec.describe db_inst = RDS::DBInstance.new('test-rds-db', rds) do
   its(:kms_key_id) { is_expected.to eq nil }
   its(:dbi_resource_id) { is_expected.to eq 'db-AAAAAAAAAAAAAAAAAAAAAAAAAA' }
   its(:ca_certificate_identifier) { is_expected.to eq 'rds-ca-2015' }
+end
+
+RSpec.describe 'DBInstance#accessible_from?' do
+  context 'The database is publicly accessible' do
+    before(:each) do
+      db_stub_response[:publicly_accessible] = true
+
+      rds.stub_responses(
+        :describe_db_instances,
+        db_instances: [
+          db_stub_response
+        ]
+      )
+    end
+
+    context 'Security Group Rule allows ingress from anywhere' do
+      before(:each) do
+        stub_security_groups(
+          ec2,
+          security_group('sg-aabbccdd', ip_permissions: [rule('0.0.0.0/0')]),
+          security_group('sg-ddccbbaa')
+        )
+
+        # Cannot use this as part of a describe statement,
+        # because stubbing ec2 multiple times
+        db_inst = RDS::DBInstance.new('test-rds-db', rds, ec2)
+      end
+
+      it 'should be accessible from anywhere' do
+        expect(db_inst).to be_accessible_from('0.0.0.0/0')
+      end
+    end
+  end
+
+  context 'The database is not publicly accessible' do
+    before(:each) do
+      db_stub_response[:publicly_accessible] = false
+      rds.stub_responses(
+        :describe_db_instances,
+        db_instances: [
+          db_stub_response
+        ]
+      )
+
+      db_inst = RDS::DBInstance.new('test-rds-db', rds, ec2)
+    end
+
+    context 'Security Group Rule allows ingress from public CIDR' do
+      before(:each) do
+        stub_security_groups(
+          ec2,
+          security_group('sg-aabbccdd', ip_permissions: [rule('52.1.0.0/16')]),
+          security_group('sg-ddccbbaa')
+        )
+      end
+
+      it 'should be accessible' do
+        expect(db_inst).not_to be_accessible_from('52.1.0.0/16')
+      end
+    end
+
+    context 'Security Groups Rule allows ingress from private CIDR' do
+      before(:each) do
+        stub_security_groups(
+          ec2,
+          security_group('sg-aabbccdd', ip_permissions: [rule('10.0.0.0/8')]),
+          security_group('sg-ddccbbaa')
+        )
+      end
+
+      it 'should be accessible from the entire CIDR range' do
+        expect(db_inst).to be_accessible_from('10.0.0.0/8')
+      end
+
+      it 'should be accessible from a subset of the CIDR range' do
+        expect(db_inst).to be_accessible_from('10.1.1.0/24')
+      end
+    end
+  end
 end

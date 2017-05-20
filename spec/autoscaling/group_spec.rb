@@ -41,10 +41,10 @@ autoscaling.stub_responses(
       value: 'test-group',
       propagate_at_launch: true
     }],
-    termination_policies: %w(
+    termination_policies: %w[
       OldestLaunchConfiguration
       ClosestToNextInstanceHour
-    )
+    ]
   }]
 )
 
@@ -121,7 +121,7 @@ RSpec.describe group = AutoScaling::Group.new('test-group', autoscaling) do
   end
 
   its(:termination_policies) do
-    is_expected.to eq %w(OldestLaunchConfiguration ClosestToNextInstanceHour)
+    is_expected.to eq %w[OldestLaunchConfiguration ClosestToNextInstanceHour]
   end
 
   its(:scaling_policies) do

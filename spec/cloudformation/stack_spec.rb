@@ -16,9 +16,9 @@ cloudformation1.stub_responses(
       parameter_value: 'Param1Value',
       use_previous_value: false
     }],
-    notification_arns: %w(arn:aws:sns:us-east-1:000000000000:sns-topic),
+    notification_arns: %w[arn:aws:sns:us-east-1:000000000000:sns-topic],
     timeout_in_minutes: 5,
-    capabilities: %w(CAPABILITY_IAM),
+    capabilities: %w[CAPABILITY_IAM],
     outputs: [{
       output_key: 'test-stack1-output',
       output_value: 'test-stack1-output-value',
@@ -71,13 +71,13 @@ RSpec.describe stack1 = CloudFormation::Stack.new(
 
   its(:stack_status) { is_expected.to eq 'CREATE_COMPLETE' }
 
-  notification_arns = %w(arn:aws:sns:us-east-1:000000000000:sns-topic)
+  notification_arns = %w[arn:aws:sns:us-east-1:000000000000:sns-topic]
   its(:notification_arns) do
     expect(stack1.notification_arns).to eq notification_arns
   end
   its(:timeout_in_minutes) { is_expected.to eq 5 }
 
-  its(:capabilities) { is_expected.to eq %w(CAPABILITY_IAM) }
+  its(:capabilities) { is_expected.to eq %w[CAPABILITY_IAM] }
 
   its(:outpus) do
     output = stack1.outputs[0]

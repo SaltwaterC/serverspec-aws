@@ -27,3 +27,11 @@ Aws.config.update(
 
 # the client stubbing makes these tests possible
 Aws.config[:stub_responses] = true
+
+def stub_response(template, with)
+  with.keys.each do |key|
+    template[key] = with[key]
+  end
+
+  template
+end

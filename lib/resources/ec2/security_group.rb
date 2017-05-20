@@ -5,6 +5,8 @@ module Serverspec
       module EC2
         # The SecurityGroup class exposes the EC2::SecurityGroup resources
         class SecurityGroup < Base
+          require 'netaddr'
+
           # AWS SDK for Ruby v2 Aws::EC2::Client wrapper for initializing a
           # SecurityGroup resource
           # @param sg_id [String] The ID of the SecurityGroup
@@ -66,6 +68,24 @@ module Serverspec
           # @return [Array(Hash)]
           def tags
             @sg.tags
+          end
+
+          # Do the security group rules permit connections from the given
+          # CIDR range?
+          # Returns true iff there is an ingress rule with a source  that
+          # contains the given CIDR range.
+          # @param cidr_s [String] The CIDR range to test
+          # @return [Boolean] True if this SG allows access from the given CIDR
+          def accessible_from?(cidr_s)
+            return false if ingress_permissions.empty?
+
+            cidr = NetAddr::CIDR.create(cidr_s)
+            allowed_cidrs = ingress_permissions.map(&:ip_ranges)
+                                               .flatten.map(&:cidr_ip)
+            matching_rules = allowed_cidrs.map do |source_cidr|
+              cidr == source_cidr || cidr.is_contained?(source_cidr)
+            end
+            matching_rules.include? true
           end
 
           private

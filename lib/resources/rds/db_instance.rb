@@ -5,17 +5,21 @@ module Serverspec
       module RDS
         # The DBInstance class exposes the RDS::DBInstance resources
         class DBInstance < Base # rubocop:disable ClassLength
+          require 'netaddr'
+
           # AWS SDK for Ruby v2 Aws::RDS::Client wrapper for initializing a
           # DBInstance resource
           # @param dbi_name [String] The name of the DBInstance
           # @param instance [Class] Aws::RDS::Client instance
+          # @param instance [Class] Aws::EC2::Client ec2
           # @raise [RuntimeError] if dbis.nil?
           # @raise [RuntimeError] if dbis.length == 0
           # @raise [RuntimeError] if dbis.length > 1
-          def initialize(dbi_name, instance = nil)
+          def initialize(dbi_name, instance = nil, ec2 = nil)
             check_init_arg 'dbi_name', 'RDS::DBInstance', dbi_name
             @dbi_name = dbi_name
             @aws = instance.nil? ? Aws::RDS::Client.new : instance
+            @ec2 = ec2.nil? ? Aws::EC2::Client.new : ec2
             get_dbi dbi_name
           end
 
@@ -52,6 +56,31 @@ module Serverspec
           # Specifies whether the DB instance is encrypted
           def with_encrypted_storage?
             @dbi.storage_encrypted
+          end
+
+          # Tests whether the database should allow connections
+          # from the given CIDR range. Inspects each of the security groups
+          # associated with the instance and associated inbound rules
+          # to check for a rule matching the given CIDR range.
+          # For external CIDR ranges, it is verified that the database is
+          # publicly accessible.
+          #
+          # Even if this method returns true, it does not necessarily mean that
+          # actual connections made to the RDS instance will succeed.
+          #
+          # Examples that may prevent actual connection are:
+          # * NACL entries
+          # * Enabled ports
+          # * Security Group Egress rules
+          def accessible_from?(cidr)
+            return false if public_cidr?(cidr) && !publicly_accessible?
+
+            vpc_security_groups.each do |sg|
+              security_group = AWS::EC2::SecurityGroup.new(sg, @ec2)
+              return true if security_group.accessible_from?(cidr)
+            end
+
+            false
           end
 
           # Contains the name of the compute and memory capacity class of the DB
@@ -274,6 +303,24 @@ module Serverspec
             ).db_instances
             check_length 'database instances', dbs
             @dbi = dbs[0]
+          end
+
+          # Is the given CIDR in the public address range
+          # @param cidr_s String representation of CIDR range.
+          #               e.g. '192.168.0.0/16'
+          # @see https://en.wikipedia.org/wiki/IP_address#Private_addresses
+          # @private
+          def public_cidr?(cidr_s)
+            cidr = NetAddr::CIDR.create(cidr_s)
+            # CIDR ranges reserved for internal addresses
+            [
+              '10.0.0.0/8', '172.16.0.0/12', '198.168.0.0/16'
+            ].each do |private_cidr|
+              if cidr == private_cidr || cidr.is_contained?(private_cidr)
+                return false
+              end
+            end
+            true
           end
         end
       end
