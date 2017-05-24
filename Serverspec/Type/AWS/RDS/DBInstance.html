@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: Serverspec::Type::AWS::RDS::DBInstance
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="../../../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "Serverspec::Type::AWS::RDS::DBInstance";
   relpath = '../../../../';
-  framesUrl = "../../../../frames.html#!Serverspec/Type/AWS/RDS/DBInstance.html";
 </script>
 
 
@@ -28,51 +27,48 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="../../../../_index.html">Index (D)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../../../Serverspec.html" title="Serverspec (module)">Serverspec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../../Type.html" title="Serverspec::Type (module)">Type</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../AWS.html" title="Serverspec::Type::AWS (module)">AWS</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../RDS.html" title="Serverspec::Type::AWS::RDS (module)">RDS</a></span></span>
      &raquo; 
     <span class="title">DBInstance</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="../../../../class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="../../../../method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="../../../../file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><h1>Class: Serverspec::Type::AWS::RDS::DBInstance
+      <div id="content"><h1>Class: Serverspec::Type::AWS::RDS::DBInstance
   
   
   
 </h1>
-
-<dl class="box">
+<div class="box_info">
   
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
       <span class="inheritName">Base</span>
       
         <ul class="fullTree">
@@ -85,21 +81,25 @@
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
       
-      </dd>
-    
+    </dd>
+  </dl>
   
-  
-    
-  
-    
+
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/resources/rds/db_instance.rb</dd>
   
-</dl>
-<div class="clear"></div>
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/resources/rds/db_instance.rb</dd>
+  </dl>
+  
+</div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
@@ -122,7 +122,7 @@
   
     <h2>
       Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+      <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
     <ul class="summary">
@@ -130,7 +130,32 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#allocated_storage-instance_method" title="#allocated_storage (instance method)">- (Integer) <strong>allocated_storage</strong> </a>
+      <a href="#accessible_from%3F-instance_method" title="#accessible_from? (instance method)">#<strong>accessible_from?</strong>(cidr)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Tests whether the database should allow connections from the given CIDR
+range.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allocated_storage-instance_method" title="#allocated_storage (instance method)">#<strong>allocated_storage</strong>  &#x21d2; Integer </a>
     
 
     
@@ -154,7 +179,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#auto_minor_version_upgradeable%3F-instance_method" title="#auto_minor_version_upgradeable? (instance method)">- (Boolean) <strong>auto_minor_version_upgradeable?</strong> </a>
+      <a href="#auto_minor_version_upgradeable%3F-instance_method" title="#auto_minor_version_upgradeable? (instance method)">#<strong>auto_minor_version_upgradeable?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -178,7 +203,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#availability_zone-instance_method" title="#availability_zone (instance method)">- (String) <strong>availability_zone</strong> </a>
+      <a href="#availability_zone-instance_method" title="#availability_zone (instance method)">#<strong>availability_zone</strong>  &#x21d2; String </a>
     
 
     
@@ -202,7 +227,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#available%3F-instance_method" title="#available? (instance method)">- (Boolean) <strong>available?</strong> </a>
+      <a href="#available%3F-instance_method" title="#available? (instance method)">#<strong>available?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -226,7 +251,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#backup_retention_period-instance_method" title="#backup_retention_period (instance method)">- (Integer) <strong>backup_retention_period</strong> </a>
+      <a href="#backup_retention_period-instance_method" title="#backup_retention_period (instance method)">#<strong>backup_retention_period</strong>  &#x21d2; Integer </a>
     
 
     
@@ -250,7 +275,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#ca_certificate_identifier-instance_method" title="#ca_certificate_identifier (instance method)">- (String) <strong>ca_certificate_identifier</strong> </a>
+      <a href="#ca_certificate_identifier-instance_method" title="#ca_certificate_identifier (instance method)">#<strong>ca_certificate_identifier</strong>  &#x21d2; String </a>
     
 
     
@@ -274,7 +299,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#character_set_name-instance_method" title="#character_set_name (instance method)">- (String) <strong>character_set_name</strong> </a>
+      <a href="#character_set_name-instance_method" title="#character_set_name (instance method)">#<strong>character_set_name</strong>  &#x21d2; String </a>
     
 
     
@@ -299,7 +324,7 @@ associated with.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#database_name-instance_method" title="#database_name (instance method)">- (String) <strong>database_name</strong> </a>
+      <a href="#database_name-instance_method" title="#database_name (instance method)">#<strong>database_name</strong>  &#x21d2; String </a>
     
 
     
@@ -324,7 +349,7 @@ use.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#dbi_resource_id-instance_method" title="#dbi_resource_id (instance method)">- (String) <strong>dbi_resource_id</strong> </a>
+      <a href="#dbi_resource_id-instance_method" title="#dbi_resource_id (instance method)">#<strong>dbi_resource_id</strong>  &#x21d2; String </a>
     
 
     
@@ -349,7 +374,7 @@ the encrypted DB instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#endpoint-instance_method" title="#endpoint (instance method)">- (String) <strong>endpoint</strong> </a>
+      <a href="#endpoint-instance_method" title="#endpoint (instance method)">#<strong>endpoint</strong>  &#x21d2; String </a>
     
 
     
@@ -373,7 +398,7 @@ the encrypted DB instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#engine-instance_method" title="#engine (instance method)">- (String) <strong>engine</strong> </a>
+      <a href="#engine-instance_method" title="#engine (instance method)">#<strong>engine</strong>  &#x21d2; String </a>
     
 
     
@@ -397,7 +422,7 @@ the encrypted DB instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#engine_version-instance_method" title="#engine_version (instance method)">- (String) <strong>engine_version</strong> </a>
+      <a href="#engine_version-instance_method" title="#engine_version (instance method)">#<strong>engine_version</strong>  &#x21d2; String </a>
     
 
     
@@ -421,7 +446,7 @@ the encrypted DB instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (DBInstance) <strong>initialize</strong>(dbi_name, instance = nil) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(dbi_name, instance = nil, ec2 = nil)  &#x21d2; DBInstance </a>
     
 
     
@@ -448,7 +473,7 @@ resource.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#instance_class-instance_method" title="#instance_class (instance method)">- (String) <strong>instance_class</strong> </a>
+      <a href="#instance_class-instance_method" title="#instance_class (instance method)">#<strong>instance_class</strong>  &#x21d2; String </a>
     
 
     
@@ -473,7 +498,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#iops-instance_method" title="#iops (instance method)">- (Integer) <strong>iops</strong> </a>
+      <a href="#iops-instance_method" title="#iops (instance method)">#<strong>iops</strong>  &#x21d2; Integer </a>
     
 
     
@@ -497,7 +522,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#kms_key_id-instance_method" title="#kms_key_id (instance method)">- (String) <strong>kms_key_id</strong> </a>
+      <a href="#kms_key_id-instance_method" title="#kms_key_id (instance method)">#<strong>kms_key_id</strong>  &#x21d2; String </a>
     
 
     
@@ -522,7 +547,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#license_model-instance_method" title="#license_model (instance method)">- (String) <strong>license_model</strong> </a>
+      <a href="#license_model-instance_method" title="#license_model (instance method)">#<strong>license_model</strong>  &#x21d2; String </a>
     
 
     
@@ -546,7 +571,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#listening_port-instance_method" title="#listening_port (instance method)">- (Integer) <strong>listening_port</strong> </a>
+      <a href="#listening_port-instance_method" title="#listening_port (instance method)">#<strong>listening_port</strong>  &#x21d2; Integer </a>
     
 
     
@@ -570,7 +595,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#master_username-instance_method" title="#master_username (instance method)">- (String) <strong>master_username</strong> </a>
+      <a href="#master_username-instance_method" title="#master_username (instance method)">#<strong>master_username</strong>  &#x21d2; String </a>
     
 
     
@@ -594,7 +619,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#multi_az%3F-instance_method" title="#multi_az? (instance method)">- (Boolean) <strong>multi_az?</strong> </a>
+      <a href="#multi_az%3F-instance_method" title="#multi_az? (instance method)">#<strong>multi_az?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -618,7 +643,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#option_group_memberships-instance_method" title="#option_group_memberships (instance method)">- (Array(Hash)) <strong>option_group_memberships</strong> </a>
+      <a href="#option_group_memberships-instance_method" title="#option_group_memberships (instance method)">#<strong>option_group_memberships</strong>  &#x21d2; Array(Hash) </a>
     
 
     
@@ -642,7 +667,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#parameter_groups-instance_method" title="#parameter_groups (instance method)">- (Array(Hash)) <strong>parameter_groups</strong> </a>
+      <a href="#parameter_groups-instance_method" title="#parameter_groups (instance method)">#<strong>parameter_groups</strong>  &#x21d2; Array(Hash) </a>
     
 
     
@@ -666,7 +691,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#pending_modified_values-instance_method" title="#pending_modified_values (instance method)">- (Hash) <strong>pending_modified_values</strong> </a>
+      <a href="#pending_modified_values-instance_method" title="#pending_modified_values (instance method)">#<strong>pending_modified_values</strong>  &#x21d2; Hash </a>
     
 
     
@@ -690,7 +715,7 @@ instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#preferred_backup_window-instance_method" title="#preferred_backup_window (instance method)">- (String) <strong>preferred_backup_window</strong> </a>
+      <a href="#preferred_backup_window-instance_method" title="#preferred_backup_window (instance method)">#<strong>preferred_backup_window</strong>  &#x21d2; String </a>
     
 
     
@@ -716,7 +741,7 @@ BackupRetentionPeriod.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#preferred_maintenance_window-instance_method" title="#preferred_maintenance_window (instance method)">- (String) <strong>preferred_maintenance_window</strong> </a>
+      <a href="#preferred_maintenance_window-instance_method" title="#preferred_maintenance_window (instance method)">#<strong>preferred_maintenance_window</strong>  &#x21d2; String </a>
     
 
     
@@ -741,7 +766,7 @@ can occur.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#publicly_accessible%3F-instance_method" title="#publicly_accessible? (instance method)">- (Boolean) <strong>publicly_accessible?</strong> </a>
+      <a href="#publicly_accessible%3F-instance_method" title="#publicly_accessible? (instance method)">#<strong>publicly_accessible?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -765,7 +790,7 @@ can occur.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#read_replica_db_instance_identifiers-instance_method" title="#read_replica_db_instance_identifiers (instance method)">- (Array(String)) <strong>read_replica_db_instance_identifiers</strong> </a>
+      <a href="#read_replica_db_instance_identifiers-instance_method" title="#read_replica_db_instance_identifiers (instance method)">#<strong>read_replica_db_instance_identifiers</strong>  &#x21d2; Array(String) </a>
     
 
     
@@ -790,7 +815,7 @@ DB instance.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#read_replica_source_db_instance_identifier-instance_method" title="#read_replica_source_db_instance_identifier (instance method)">- (String) <strong>read_replica_source_db_instance_identifier</strong> </a>
+      <a href="#read_replica_source_db_instance_identifier-instance_method" title="#read_replica_source_db_instance_identifier (instance method)">#<strong>read_replica_source_db_instance_identifier</strong>  &#x21d2; String </a>
     
 
     
@@ -815,7 +840,7 @@ Read Replica.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#secondary_availability_zone-instance_method" title="#secondary_availability_zone (instance method)">- (String) <strong>secondary_availability_zone</strong> </a>
+      <a href="#secondary_availability_zone-instance_method" title="#secondary_availability_zone (instance method)">#<strong>secondary_availability_zone</strong>  &#x21d2; String </a>
     
 
     
@@ -840,7 +865,7 @@ instance with multi-AZ support.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#security_groups-instance_method" title="#security_groups (instance method)">- (Array(String)) <strong>security_groups</strong> </a>
+      <a href="#security_groups-instance_method" title="#security_groups (instance method)">#<strong>security_groups</strong>  &#x21d2; Array(String) </a>
     
 
     
@@ -864,7 +889,7 @@ instance with multi-AZ support.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#status_infos-instance_method" title="#status_infos (instance method)">- (Array(Hash)) <strong>status_infos</strong> </a>
+      <a href="#status_infos-instance_method" title="#status_infos (instance method)">#<strong>status_infos</strong>  &#x21d2; Array(Hash) </a>
     
 
     
@@ -888,7 +913,7 @@ instance with multi-AZ support.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#storage_type-instance_method" title="#storage_type (instance method)">- (String) <strong>storage_type</strong> </a>
+      <a href="#storage_type-instance_method" title="#storage_type (instance method)">#<strong>storage_type</strong>  &#x21d2; String </a>
     
 
     
@@ -912,7 +937,7 @@ instance with multi-AZ support.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#subnet_group-instance_method" title="#subnet_group (instance method)">- (Hash) <strong>subnet_group</strong> </a>
+      <a href="#subnet_group-instance_method" title="#subnet_group (instance method)">#<strong>subnet_group</strong>  &#x21d2; Hash </a>
     
 
     
@@ -937,7 +962,7 @@ including the name, description, and subnets in the subnet group.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#tde_credential_arn-instance_method" title="#tde_credential_arn (instance method)">- (String) <strong>tde_credential_arn</strong> </a>
+      <a href="#tde_credential_arn-instance_method" title="#tde_credential_arn (instance method)">#<strong>tde_credential_arn</strong>  &#x21d2; String </a>
     
 
     
@@ -962,7 +987,7 @@ encryption.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
     
 
     
@@ -986,7 +1011,7 @@ encryption.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#vpc_security_groups-instance_method" title="#vpc_security_groups (instance method)">- (Array(String)) <strong>vpc_security_groups</strong> </a>
+      <a href="#vpc_security_groups-instance_method" title="#vpc_security_groups (instance method)">#<strong>vpc_security_groups</strong>  &#x21d2; Array(String) </a>
     
 
     
@@ -1011,7 +1036,7 @@ to.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#with_encrypted_storage%3F-instance_method" title="#with_encrypted_storage? (instance method)">- (Boolean) <strong>with_encrypted_storage?</strong> </a>
+      <a href="#with_encrypted_storage%3F-instance_method" title="#with_encrypted_storage? (instance method)">#<strong>with_encrypted_storage?</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -1042,7 +1067,7 @@ to.</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Serverspec::Type::AWS::RDS::DBInstance (class)">DBInstance</a></span></tt>) <strong>initialize</strong>(dbi_name, instance = nil) 
+    #<strong>initialize</strong>(dbi_name, instance = nil, ec2 = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="Serverspec::Type::AWS::RDS::DBInstance (class)">DBInstance</a></span></tt> 
   
 
   
@@ -1091,6 +1116,24 @@ resource</p>
         &mdash;
         <div class='inline'>
 <p>Aws::RDS::Client instance</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>instance</span>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Aws::EC2::Client ec2</p>
 </div>
       
     </li>
@@ -1150,20 +1193,22 @@ resource</p>
       <pre class="lines">
 
 
-17
 18
 19
 20
 21
-22</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 18</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_dbi_name'>dbi_name</span><span class='comma'>,</span> <span class='id identifier rubyid_instance'>instance</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_dbi_name'>dbi_name</span><span class='comma'>,</span> <span class='id identifier rubyid_instance'>instance</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_ec2'>ec2</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_check_init_arg'>check_init_arg</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dbi_name</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RDS::DBInstance</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_dbi_name'>dbi_name</span>
   <span class='ivar'>@dbi_name</span> <span class='op'>=</span> <span class='id identifier rubyid_dbi_name'>dbi_name</span>
   <span class='ivar'>@aws</span> <span class='op'>=</span> <span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='const'>Aws</span><span class='op'>::</span><span class='const'>RDS</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='op'>:</span> <span class='id identifier rubyid_instance'>instance</span>
+  <span class='ivar'>@ec2</span> <span class='op'>=</span> <span class='id identifier rubyid_ec2'>ec2</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>?</span> <span class='const'>Aws</span><span class='op'>::</span><span class='const'>EC2</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='op'>:</span> <span class='id identifier rubyid_ec2'>ec2</span>
   <span class='id identifier rubyid_get_dbi'>get_dbi</span> <span class='id identifier rubyid_dbi_name'>dbi_name</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1179,9 +1224,93 @@ resource</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="allocated_storage-instance_method">
+  <h3 class="signature first" id="accessible_from?-instance_method">
   
-    - (<tt>Integer</tt>) <strong>allocated_storage</strong> 
+    #<strong>accessible_from?</strong>(cidr)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Tests whether the database should allow connections from the given CIDR
+range. Inspects each of the security groups associated with the instance
+and associated inbound rules to check for a rule matching the given CIDR
+range. For external CIDR ranges, it is verified that the database is
+publicly accessible.</p>
+
+<p>Even if this method returns true, it does not necessarily mean that actual
+connections made to the RDS instance will succeed.</p>
+
+<p>Examples that may prevent actual connection are:</p>
+<ul><li>
+<p>NACL entries</p>
+</li><li>
+<p>Enabled ports</p>
+</li><li>
+<p>Security Group Egress rules</p>
+</li></ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_accessible_from?'>accessible_from?</span><span class='lparen'>(</span><span class='id identifier rubyid_cidr'>cidr</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_public_cidr?'>public_cidr?</span><span class='lparen'>(</span><span class='id identifier rubyid_cidr'>cidr</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_publicly_accessible?'>publicly_accessible?</span>
+
+  <span class='id identifier rubyid_vpc_security_groups'>vpc_security_groups</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_sg'>sg</span><span class='op'>|</span>
+    <span class='id identifier rubyid_security_group'>security_group</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../AWS.html" title="Serverspec::Type::AWS (module)">AWS</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../EC2.html" title="Serverspec::Type::AWS::EC2 (module)">EC2</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../EC2/SecurityGroup.html" title="Serverspec::Type::AWS::EC2::SecurityGroup (class)">SecurityGroup</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../EC2/SecurityGroup.html#initialize-instance_method" title="Serverspec::Type::AWS::EC2::SecurityGroup#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_sg'>sg</span><span class='comma'>,</span> <span class='ivar'>@ec2</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_security_group'>security_group</span><span class='period'>.</span><span class='id identifier rubyid_accessible_from?'>accessible_from?</span><span class='lparen'>(</span><span class='id identifier rubyid_cidr'>cidr</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allocated_storage-instance_method">
+  
+    #<strong>allocated_storage</strong>  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -1217,12 +1346,12 @@ resource</p>
       <pre class="lines">
 
 
-100
-101
-102</pre>
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 127</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_allocated_storage'>allocated_storage</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_allocated_storage'>allocated_storage</span>
@@ -1235,7 +1364,7 @@ resource</p>
       <div class="method_details ">
   <h3 class="signature " id="auto_minor_version_upgradeable?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>auto_minor_version_upgradeable?</strong> 
+    #<strong>auto_minor_version_upgradeable?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -1271,12 +1400,12 @@ resource</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_auto_minor_version_upgradeable?'>auto_minor_version_upgradeable?</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_auto_minor_version_upgrade'>auto_minor_version_upgrade</span>
@@ -1289,7 +1418,7 @@ resource</p>
       <div class="method_details ">
   <h3 class="signature " id="availability_zone-instance_method">
   
-    - (<tt>String</tt>) <strong>availability_zone</strong> 
+    #<strong>availability_zone</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1325,12 +1454,12 @@ resource</p>
       <pre class="lines">
 
 
-149
-150
-151</pre>
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 176</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_availability_zone'>availability_zone</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_availability_zone'>availability_zone</span>
@@ -1343,7 +1472,7 @@ resource</p>
       <div class="method_details ">
   <h3 class="signature " id="available?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>available?</strong> 
+    #<strong>available?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -1379,12 +1508,12 @@ resource</p>
       <pre class="lines">
 
 
-31
-32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_available?'>available?</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_db_instance_status'>db_instance_status</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>available</span><span class='tstring_end'>&#39;</span></span>
@@ -1397,7 +1526,7 @@ resource</p>
       <div class="method_details ">
   <h3 class="signature " id="backup_retention_period-instance_method">
   
-    - (<tt>Integer</tt>) <strong>backup_retention_period</strong> 
+    #<strong>backup_retention_period</strong>  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -1433,12 +1562,12 @@ resource</p>
       <pre class="lines">
 
 
-115
-116
-117</pre>
+142
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backup_retention_period'>backup_retention_period</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_backup_retention_period'>backup_retention_period</span>
@@ -1451,7 +1580,7 @@ resource</p>
       <div class="method_details ">
   <h3 class="signature " id="ca_certificate_identifier-instance_method">
   
-    - (<tt>String</tt>) <strong>ca_certificate_identifier</strong> 
+    #<strong>ca_certificate_identifier</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1487,12 +1616,12 @@ resource</p>
       <pre class="lines">
 
 
-266
-267
-268</pre>
+293
+294
+295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 266</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 293</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ca_certificate_identifier'>ca_certificate_identifier</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_ca_certificate_identifier'>ca_certificate_identifier</span>
@@ -1505,7 +1634,7 @@ resource</p>
       <div class="method_details ">
   <h3 class="signature " id="character_set_name-instance_method">
   
-    - (<tt>String</tt>) <strong>character_set_name</strong> 
+    #<strong>character_set_name</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1542,12 +1671,12 @@ associated with</p>
       <pre class="lines">
 
 
-217
-218
-219</pre>
+244
+245
+246</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 244</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_character_set_name'>character_set_name</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_character_set_name'>character_set_name</span>
@@ -1560,7 +1689,7 @@ associated with</p>
       <div class="method_details ">
   <h3 class="signature " id="database_name-instance_method">
   
-    - (<tt>String</tt>) <strong>database_name</strong> 
+    #<strong>database_name</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1597,12 +1726,12 @@ use</p>
       <pre class="lines">
 
 
-82
-83
-84</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_database_name'>database_name</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_db_name'>db_name</span>
@@ -1615,7 +1744,7 @@ use</p>
       <div class="method_details ">
   <h3 class="signature " id="dbi_resource_id-instance_method">
   
-    - (<tt>String</tt>) <strong>dbi_resource_id</strong> 
+    #<strong>dbi_resource_id</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1653,12 +1782,12 @@ entries whenever the KMS key for the DB instance is accessed</p>
       <pre class="lines">
 
 
-260
-261
-262</pre>
+287
+288
+289</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 260</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 287</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dbi_resource_id'>dbi_resource_id</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_dbi_resource_id'>dbi_resource_id</span>
@@ -1671,7 +1800,7 @@ entries whenever the KMS key for the DB instance is accessed</p>
       <div class="method_details ">
   <h3 class="signature " id="endpoint-instance_method">
   
-    - (<tt>String</tt>) <strong>endpoint</strong> 
+    #<strong>endpoint</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1707,12 +1836,12 @@ entries whenever the KMS key for the DB instance is accessed</p>
       <pre class="lines">
 
 
-88
-89
-90</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_endpoint'>endpoint</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_endpoint'>endpoint</span><span class='period'>.</span><span class='id identifier rubyid_address'>address</span>
@@ -1725,7 +1854,7 @@ entries whenever the KMS key for the DB instance is accessed</p>
       <div class="method_details ">
   <h3 class="signature " id="engine-instance_method">
   
-    - (<tt>String</tt>) <strong>engine</strong> 
+    #<strong>engine</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1761,12 +1890,12 @@ entries whenever the KMS key for the DB instance is accessed</p>
       <pre class="lines">
 
 
-69
-70
-71</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_engine'>engine</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_engine'>engine</span>
@@ -1779,7 +1908,7 @@ entries whenever the KMS key for the DB instance is accessed</p>
       <div class="method_details ">
   <h3 class="signature " id="engine_version-instance_method">
   
-    - (<tt>String</tt>) <strong>engine_version</strong> 
+    #<strong>engine_version</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1815,12 +1944,12 @@ entries whenever the KMS key for the DB instance is accessed</p>
       <pre class="lines">
 
 
-178
-179
-180</pre>
+205
+206
+207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 205</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_engine_version'>engine_version</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_engine_version'>engine_version</span>
@@ -1833,7 +1962,7 @@ entries whenever the KMS key for the DB instance is accessed</p>
       <div class="method_details ">
   <h3 class="signature " id="instance_class-instance_method">
   
-    - (<tt>String</tt>) <strong>instance_class</strong> 
+    #<strong>instance_class</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1870,12 +1999,12 @@ instance</p>
       <pre class="lines">
 
 
-62
-63
-64</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_instance_class'>instance_class</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_db_instance_class'>db_instance_class</span>
@@ -1888,7 +2017,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="iops-instance_method">
   
-    - (<tt>Integer</tt>) <strong>iops</strong> 
+    #<strong>iops</strong>  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -1924,12 +2053,12 @@ instance</p>
       <pre class="lines">
 
 
-204
-205
-206</pre>
+231
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 204</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_iops'>iops</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_iops'>iops</span>
@@ -1942,7 +2071,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="kms_key_id-instance_method">
   
-    - (<tt>String</tt>) <strong>kms_key_id</strong> 
+    #<strong>kms_key_id</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -1979,12 +2108,12 @@ instance</p>
       <pre class="lines">
 
 
-251
-252
-253</pre>
+278
+279
+280</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 251</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 278</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kms_key_id'>kms_key_id</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_kms_key_id'>kms_key_id</span>
@@ -1997,7 +2126,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="license_model-instance_method">
   
-    - (<tt>String</tt>) <strong>license_model</strong> 
+    #<strong>license_model</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2033,12 +2162,12 @@ instance</p>
       <pre class="lines">
 
 
-198
-199
-200</pre>
+225
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 225</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_license_model'>license_model</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_license_model'>license_model</span>
@@ -2051,7 +2180,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="listening_port-instance_method">
   
-    - (<tt>Integer</tt>) <strong>listening_port</strong> 
+    #<strong>listening_port</strong>  &#x21d2; <tt>Integer</tt> 
   
 
   
@@ -2087,12 +2216,12 @@ instance</p>
       <pre class="lines">
 
 
-94
-95
-96</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_listening_port'>listening_port</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_endpoint'>endpoint</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span>
@@ -2105,7 +2234,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="master_username-instance_method">
   
-    - (<tt>String</tt>) <strong>master_username</strong> 
+    #<strong>master_username</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2141,12 +2270,12 @@ instance</p>
       <pre class="lines">
 
 
-75
-76
-77</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_master_username'>master_username</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_master_username'>master_username</span>
@@ -2159,7 +2288,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="multi_az?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>multi_az?</strong> 
+    #<strong>multi_az?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -2195,12 +2324,12 @@ instance</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_multi_az?'>multi_az?</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_multi_az'>multi_az</span>
@@ -2213,7 +2342,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="option_group_memberships-instance_method">
   
-    - (<tt>Array(Hash)</tt>) <strong>option_group_memberships</strong> 
+    #<strong>option_group_memberships</strong>  &#x21d2; <tt>Array(Hash)</tt> 
   
 
   
@@ -2249,12 +2378,12 @@ instance</p>
       <pre class="lines">
 
 
-210
-211
-212</pre>
+237
+238
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 237</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_option_group_memberships'>option_group_memberships</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_option_group_memberships'>option_group_memberships</span>
@@ -2267,7 +2396,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="parameter_groups-instance_method">
   
-    - (<tt>Array(Hash)</tt>) <strong>parameter_groups</strong> 
+    #<strong>parameter_groups</strong>  &#x21d2; <tt>Array(Hash)</tt> 
   
 
   
@@ -2303,12 +2432,12 @@ instance</p>
       <pre class="lines">
 
 
-142
-143
-144</pre>
+169
+170
+171</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parameter_groups'>parameter_groups</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_db_parameter_groups'>db_parameter_groups</span>
@@ -2321,7 +2450,7 @@ instance</p>
       <div class="method_details ">
   <h3 class="signature " id="pending_modified_values-instance_method">
   
-    - (<tt>Hash</tt>) <strong>pending_modified_values</strong> 
+    #<strong>pending_modified_values</strong>  &#x21d2; <tt>Hash</tt> 
   
 
   
@@ -2359,12 +2488,12 @@ subelements</p>
       <pre class="lines">
 
 
-172
-173
-174</pre>
+199
+200
+201</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 172</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 199</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pending_modified_values'>pending_modified_values</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_pending_modified_values'>pending_modified_values</span>
@@ -2377,7 +2506,7 @@ subelements</p>
       <div class="method_details ">
   <h3 class="signature " id="preferred_backup_window-instance_method">
   
-    - (<tt>String</tt>) <strong>preferred_backup_window</strong> 
+    #<strong>preferred_backup_window</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2415,12 +2544,12 @@ BackupRetentionPeriod</p>
       <pre class="lines">
 
 
-108
-109
-110</pre>
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_preferred_backup_window'>preferred_backup_window</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_preferred_backup_window'>preferred_backup_window</span>
@@ -2433,7 +2562,7 @@ BackupRetentionPeriod</p>
       <div class="method_details ">
   <h3 class="signature " id="preferred_maintenance_window-instance_method">
   
-    - (<tt>String</tt>) <strong>preferred_maintenance_window</strong> 
+    #<strong>preferred_maintenance_window</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2470,12 +2599,12 @@ can occur</p>
       <pre class="lines">
 
 
-164
-165
-166</pre>
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 191</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_preferred_maintenance_window'>preferred_maintenance_window</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_preferred_maintenance_window'>preferred_maintenance_window</span>
@@ -2488,7 +2617,7 @@ can occur</p>
       <div class="method_details ">
   <h3 class="signature " id="publicly_accessible?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>publicly_accessible?</strong> 
+    #<strong>publicly_accessible?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -2527,12 +2656,12 @@ internal instance with a DNS name that resolves to a private IP address</p>
       <pre class="lines">
 
 
-50
-51
-52</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_publicly_accessible?'>publicly_accessible?</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_publicly_accessible'>publicly_accessible</span>
@@ -2545,7 +2674,7 @@ internal instance with a DNS name that resolves to a private IP address</p>
       <div class="method_details ">
   <h3 class="signature " id="read_replica_db_instance_identifiers-instance_method">
   
-    - (<tt>Array(String)</tt>) <strong>read_replica_db_instance_identifiers</strong> 
+    #<strong>read_replica_db_instance_identifiers</strong>  &#x21d2; <tt>Array(String)</tt> 
   
 
   
@@ -2582,12 +2711,12 @@ DB instance</p>
       <pre class="lines">
 
 
-192
-193
-194</pre>
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 219</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_replica_db_instance_identifiers'>read_replica_db_instance_identifiers</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_read_replica_db_instance_identifiers'>read_replica_db_instance_identifiers</span>
@@ -2600,7 +2729,7 @@ DB instance</p>
       <div class="method_details ">
   <h3 class="signature " id="read_replica_source_db_instance_identifier-instance_method">
   
-    - (<tt>String</tt>) <strong>read_replica_source_db_instance_identifier</strong> 
+    #<strong>read_replica_source_db_instance_identifier</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2637,12 +2766,12 @@ Read Replica</p>
       <pre class="lines">
 
 
-185
-186
-187</pre>
+212
+213
+214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_replica_source_db_instance_identifier'>read_replica_source_db_instance_identifier</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_read_replica_source_db_instance_identifier'>read_replica_source_db_instance_identifier</span>
@@ -2655,7 +2784,7 @@ Read Replica</p>
       <div class="method_details ">
   <h3 class="signature " id="secondary_availability_zone-instance_method">
   
-    - (<tt>String</tt>) <strong>secondary_availability_zone</strong> 
+    #<strong>secondary_availability_zone</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2692,12 +2821,12 @@ instance with multi-AZ support</p>
       <pre class="lines">
 
 
-224
-225
-226</pre>
+251
+252
+253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 224</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 251</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_secondary_availability_zone'>secondary_availability_zone</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_secondary_availability_zone'>secondary_availability_zone</span>
@@ -2710,7 +2839,7 @@ instance with multi-AZ support</p>
       <div class="method_details ">
   <h3 class="signature " id="security_groups-instance_method">
   
-    - (<tt>Array(String)</tt>) <strong>security_groups</strong> 
+    #<strong>security_groups</strong>  &#x21d2; <tt>Array(String)</tt> 
   
 
   
@@ -2746,16 +2875,16 @@ instance with multi-AZ support</p>
       <pre class="lines">
 
 
-121
-122
-123
-124
-125
-126
-127</pre>
+148
+149
+150
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_security_groups'>security_groups</span>
   <span class='id identifier rubyid_sgs'>sgs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -2772,7 +2901,7 @@ instance with multi-AZ support</p>
       <div class="method_details ">
   <h3 class="signature " id="status_infos-instance_method">
   
-    - (<tt>Array(Hash)</tt>) <strong>status_infos</strong> 
+    #<strong>status_infos</strong>  &#x21d2; <tt>Array(Hash)</tt> 
   
 
   
@@ -2809,12 +2938,12 @@ will be blank</p>
       <pre class="lines">
 
 
-231
-232
-233</pre>
+258
+259
+260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 231</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 258</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_status_infos'>status_infos</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_status_infos'>status_infos</span>
@@ -2827,7 +2956,7 @@ will be blank</p>
       <div class="method_details ">
   <h3 class="signature " id="storage_type-instance_method">
   
-    - (<tt>String</tt>) <strong>storage_type</strong> 
+    #<strong>storage_type</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2863,12 +2992,12 @@ will be blank</p>
       <pre class="lines">
 
 
-237
-238
-239</pre>
+264
+265
+266</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 237</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 264</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_storage_type'>storage_type</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_storage_type'>storage_type</span>
@@ -2881,7 +3010,7 @@ will be blank</p>
       <div class="method_details ">
   <h3 class="signature " id="subnet_group-instance_method">
   
-    - (<tt>Hash</tt>) <strong>subnet_group</strong> 
+    #<strong>subnet_group</strong>  &#x21d2; <tt>Hash</tt> 
   
 
   
@@ -2918,12 +3047,12 @@ including the name, description, and subnets in the subnet group</p>
       <pre class="lines">
 
 
-157
-158
-159</pre>
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 184</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_subnet_group'>subnet_group</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_db_subnet_group'>db_subnet_group</span>
@@ -2936,7 +3065,7 @@ including the name, description, and subnets in the subnet group</p>
       <div class="method_details ">
   <h3 class="signature " id="tde_credential_arn-instance_method">
   
-    - (<tt>String</tt>) <strong>tde_credential_arn</strong> 
+    #<strong>tde_credential_arn</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2973,12 +3102,12 @@ encryption</p>
       <pre class="lines">
 
 
-244
-245
-246</pre>
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 244</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tde_credential_arn'>tde_credential_arn</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_tde_credential_arn'>tde_credential_arn</span>
@@ -2991,7 +3120,7 @@ encryption</p>
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    - (<tt>String</tt>) <strong>to_s</strong> 
+    #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -3027,12 +3156,12 @@ encryption</p>
       <pre class="lines">
 
 
-26
-27
-28</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RDS DBInstance: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@dbi_name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -3045,7 +3174,7 @@ encryption</p>
       <div class="method_details ">
   <h3 class="signature " id="vpc_security_groups-instance_method">
   
-    - (<tt>Array(String)</tt>) <strong>vpc_security_groups</strong> 
+    #<strong>vpc_security_groups</strong>  &#x21d2; <tt>Array(String)</tt> 
   
 
   
@@ -3082,16 +3211,16 @@ to</p>
       <pre class="lines">
 
 
-132
-133
-134
-135
-136
-137
-138</pre>
+159
+160
+161
+162
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 159</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vpc_security_groups'>vpc_security_groups</span>
   <span class='id identifier rubyid_vsgs'>vsgs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -3108,7 +3237,7 @@ to</p>
       <div class="method_details ">
   <h3 class="signature " id="with_encrypted_storage?-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>with_encrypted_storage?</strong> 
+    #<strong>with_encrypted_storage?</strong>  &#x21d2; <tt>Boolean</tt> 
   
 
   
@@ -3144,12 +3273,12 @@ to</p>
       <pre class="lines">
 
 
-55
-56
-57</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/rds/db_instance.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with_encrypted_storage?'>with_encrypted_storage?</span>
   <span class='ivar'>@dbi</span><span class='period'>.</span><span class='id identifier rubyid_storage_encrypted'>storage_encrypted</span>
@@ -3163,11 +3292,12 @@ to</p>
 
 </div>
 
-    <div id="footer">
-  Generated on Sat Mar 19 09:48:33 2016 by
+      <div id="footer">
+  Generated on Wed May 24 12:57:23 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.6).
+  0.9.9 (ruby-2.3.1).
 </div>
 
+    </div>
   </body>
 </html>
