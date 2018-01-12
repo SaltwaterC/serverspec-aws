@@ -57,32 +57,38 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h2>About <a href="https://travis-ci.org/SaltwaterC/serverspec-aws"><img src="https://secure.travis-ci.org/SaltwaterC/serverspec-aws.png?branch=master" alt="build status"></a></h2>
+      <div id="content"><div id='filecontents'>
+<h2 id="label-About+rdoc-image-3Ahttps-3A-2F-2Fsecure.travis-ci.org-2FSaltwaterC-2Fserverspec-aws.png-3Fbranch-3Dmaster">About <a href="https://travis-ci.org/SaltwaterC/serverspec-aws"><img src="https://secure.travis-ci.org/SaltwaterC/serverspec-aws.png?branch=master"></a></h2>
 
 <p>Serverspec resources for AWS using AWS SDK for Ruby v2.</p>
 
-<h2>Documentation</h2>
+<h2 id="label-Documentation">Documentation</h2>
 
-<p>The documentation is available as <a href="http://saltwaterc.github.io/serverspec-aws/">GitHub page</a>.</p>
+<p>The documentation is available as <a
+href="http://saltwaterc.github.io/serverspec-aws/">GitHub page</a>.</p>
 
-<h2>Usage</h2>
+<h2 id="label-Usage">Usage</h2>
 
-<p>There aren&#39;t examples per se, but you can take a peek at the spec directory. The integration tests against itself also shows the usage mode. However, in real world use cases, the stubbing of the AWS SDK is (obviously) not necesary, hence you don&#39;t need to pass the instance argument for the resource classes which was implemented as a testing feature. Also, the spec_helper doesn&#39;t need to enable the stub_responses for real world use cases.</p>
+<p>There aren&#39;t examples per se, but you can take a peek at the spec
+directory. The integration tests against itself also shows the usage mode.
+However, in real world use cases, the stubbing of the AWS SDK is
+(obviously) not necesary, hence you don&#39;t need to pass the instance
+argument for the resource classes which was implemented as a testing
+feature. Also, the spec_helper doesn&#39;t need to enable the
+stub_responses for real world use cases.</p>
 
-<h2>Contributors</h2>
+<h2 id="label-Contributors">Contributors</h2>
+<ul><li>
+<p><a href="https://github.com/temyers">Tim Myerscough</a></p>
+</li></ul>
 
-<ul>
-<li><a href="https://github.com/temyers">Tim Myerscough</a></li>
-</ul>
+<h2 id="label-Development">Development</h2>
 
-<h2>Development</h2>
+<p>The following docker container will give you a command shell into an
+environment for development <code> docker run -v $PWD:/root -it ruby:2.4
+/bin/bash </code></p>
 
-<p>The following docker container will give you a command shell into an environment for development</p>
-
-<pre class="code ruby"><code class="ruby">docker run -v $PWD:/root -it ruby:2.4 /bin/bash
-</code></pre>
-
-<h2>Running Tests</h2>
+<h2 id="label-Running+Tests">Running Tests</h2>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_install'>install</span>
 <span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_spec'>spec</span>
@@ -90,9 +96,9 @@
 </div></div>
 
       <div id="footer">
-  Generated on Wed May 24 12:57:22 2017 by
+  Generated on Fri Jan 12 10:47:56 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.1).
+  0.9.9 (ruby-2.4.2).
 </div>
 
     </div>
