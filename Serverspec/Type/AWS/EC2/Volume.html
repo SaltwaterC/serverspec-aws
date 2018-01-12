@@ -6,7 +6,7 @@
 <title>
   Class: Serverspec::Type::AWS::EC2::Volume
   
-    &mdash; Documentation by YARD 0.9.9
+    &mdash; Documentation by YARD 0.9.12
   
 </title>
 
@@ -311,13 +311,13 @@ Aws::EC2::Types::BlockDeviceMapping</p>
       <pre class="lines">
 
 
+73
+74
 75
-76
-77
-78</pre>
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_vol'>vol</span><span class='comma'>,</span> <span class='id identifier rubyid_volume_type'>volume_type</span><span class='rparen'>)</span>
   <span class='ivar'>@volume</span> <span class='op'>=</span> <span class='id identifier rubyid_vol'>vol</span>
@@ -361,12 +361,12 @@ Aws::EC2::Types::BlockDeviceMapping</p>
       <pre class="lines">
 
 
-92
-93
-94</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_type'>type</span>
   <span class='ivar'>@type</span>
@@ -398,12 +398,12 @@ Aws::EC2::Types::BlockDeviceMapping</p>
       <pre class="lines">
 
 
-88
-89
-90</pre>
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_device_name'>device_name</span>
   <span class='ivar'>@volume</span><span class='period'>.</span><span class='id identifier rubyid_device_name'>device_name</span>
@@ -450,12 +450,12 @@ Aws::EC2::Types::BlockDeviceMapping</p>
       <pre class="lines">
 
 
-80
-81
-82</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_encrypted?'>encrypted?</span>
   <span class='ivar'>@volume</span><span class='period'>.</span><span class='id identifier rubyid_ebs'>ebs</span><span class='period'>.</span><span class='id identifier rubyid_encrypted'>encrypted</span>
@@ -480,12 +480,12 @@ Aws::EC2::Types::BlockDeviceMapping</p>
       <pre class="lines">
 
 
-84
-85
-86</pre>
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_snapshot_id'>snapshot_id</span>
   <span class='ivar'>@volume</span><span class='period'>.</span><span class='id identifier rubyid_ebs'>ebs</span><span class='period'>.</span><span class='id identifier rubyid_snapshot_id'>snapshot_id</span>
@@ -534,12 +534,12 @@ Aws::EC2::Types::BlockDeviceMapping</p>
       <pre class="lines">
 
 
-96
-97
-98</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/resources/ec2/image.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>EC2 Image Root Volume: </span><span class='embexpr_beg'>#{</span><span class='ivar'>@volume</span><span class='period'>.</span><span class='id identifier rubyid_ebs'>ebs</span><span class='period'>.</span><span class='id identifier rubyid_snapshot_id'>snapshot_id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -554,9 +554,9 @@ Aws::EC2::Types::BlockDeviceMapping</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Jan 12 10:47:56 2018 by
+  Generated on Fri Jan 12 11:06:27 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.4.2).
+  0.9.12 (ruby-2.4.2).
 </div>
 
     </div>
