@@ -11,9 +11,6 @@ Style/UnneededPercentQ:
 Style/StringLiterals:
   Enabled: true
 
-Style/TrailingBlankLines:
-  Enabled: true
-
 Style/PercentLiteralDelimiters:
   Enabled: true
 
@@ -26,6 +23,9 @@ Style/FileName:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Layout/TrailingBlankLines:
+  Enabled: true
 
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:

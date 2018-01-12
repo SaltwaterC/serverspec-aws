@@ -11,7 +11,7 @@ module Serverspec
           # DBInstance resource
           # @param dbi_name [String] The name of the DBInstance
           # @param instance [Class] Aws::RDS::Client instance
-          # @param instance [Class] Aws::EC2::Client ec2
+          # @param ec2 [Class] Aws::EC2::Client ec2
           # @raise [RuntimeError] if dbis.nil?
           # @raise [RuntimeError] if dbis.length == 0
           # @raise [RuntimeError] if dbis.length > 1

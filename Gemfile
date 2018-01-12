@@ -11,6 +11,6 @@ group :development, optional: true do
   gem 'jeweler', '~>2'
   gem 'rake', '~>10.4'
   gem 'rspec', '~>3'
-  gem 'rubocop', '~>0.31'
-  gem 'yard', '~>0.8'
+  gem 'rubocop', '~>0.52'
+  gem 'yard', '~>0.9'
 end
