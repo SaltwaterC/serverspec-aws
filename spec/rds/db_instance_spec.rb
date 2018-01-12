@@ -125,7 +125,7 @@ def security_group(id, overrides = {})
 
   stub_response(template, overrides)
 end
-# rubocop:enable
+# rubocop:enable Metrics/MethodLength
 
 def rule(cidr)
   {

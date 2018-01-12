@@ -9,6 +9,8 @@ module Serverspec
           attr_reader :instance_id
           # The Name tag of the Instance (if available)
           attr_reader :image_name
+          # The ID of the AMI
+          attr_reader :image_id
 
           # AWS SDK for Ruby v2 Aws::EC2::Client wrapper for initializing an
           # Instance resource
@@ -42,10 +44,6 @@ module Serverspec
             end
             Volume.new(root_vol, @image.root_device_type)
           end
-
-          attr_reader :image_id
-
-          attr_reader :image_name
 
           private
 

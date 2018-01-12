@@ -16,7 +16,9 @@ RSpec.configure do |config|
 end
 
 require_relative '../lib/serverspec-aws'
+# rubocop:disable Style/MixinUsage
 include Serverspec::Type::AWS
+# rubocop:enable Style/MixinUsage
 set :backend, :exec
 
 # without this bit, the SDK is painfully slow
@@ -29,7 +31,7 @@ Aws.config.update(
 Aws.config[:stub_responses] = true
 
 def stub_response(template, with)
-  with.keys.each do |key|
+  with.each_key do |key|
     template[key] = with[key]
   end
 

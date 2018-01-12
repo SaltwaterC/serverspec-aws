@@ -19,7 +19,6 @@ ec21.stub_responses(
       sriov_net_support: 'simple',
       ena_support: nil,
       state_reason: nil,
-
       image_owner_alias: nil,
       name: 'my-ami',
       description: nil,
@@ -37,7 +36,6 @@ ec21.stub_responses(
             volume_type: 'gp2',
             iops: nil, #=> Integer
             encrypted: false #=> true/false
-
           },
           no_device: nil, #=> String
         },
@@ -82,7 +80,6 @@ ec22.stub_responses(
       sriov_net_support: 'simple',
       ena_support: nil,
       state_reason: nil,
-
       image_owner_alias: nil,
       name: 'my-ami2',
       description: nil,
@@ -100,7 +97,6 @@ ec22.stub_responses(
             volume_type: 'gp2',
             iops: nil, #=> Integer
             encrypted: true #=> true/false
-
           },
           no_device: nil, #=> String
         },

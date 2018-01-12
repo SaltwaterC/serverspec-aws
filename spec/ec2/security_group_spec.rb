@@ -32,8 +32,9 @@ def security_group(with_overrides)
 
   stub_response(template, with_overrides)
 end
+# rubocop:enable Metrics/MethodLength
 
-# rubocop:enable
+# rubocop:disable Metrics/MethodLength
 def rule(cidr)
   {
     ip_protocol: 'tcp',
@@ -54,7 +55,7 @@ def rule(cidr)
     prefix_list_ids: []
   }
 end
-# rubocop:enable
+# rubocop:enable Metrics/MethodLength
 
 RSpec.context 'Security Group allows ingress from anywhere' do
   ec2.stub_responses(
